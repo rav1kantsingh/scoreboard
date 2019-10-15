@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route path='/score-card' component={MainPage}/>
+          <Route path='/scoreboard' component={MainPage}/>
         </Switch>
       </Router>
     </div>
