@@ -4,7 +4,8 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 3rem;
+    padding: 2rem;
+    margin: 0 .2rem;
     border: 0.1rem black solid;
 
     .circle{
@@ -22,7 +23,7 @@
     }
 
     h2{
-        margin-top: 2rem;
+        margin-top: 1rem;
     }
 
     #desc{

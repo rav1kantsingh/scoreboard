@@ -1,0 +1,21 @@
+#main-page{
+    display: flex;
+
+    .ranking{
+        flex: 1;
+    }
+
+    .main{
+        flex: 3;
+        width: 60vw;
+        height: 100vh;
+
+        .card-container{
+            display: flex;
+            flex-direction: row;
+            margin-top: 40vh;
+            padding:0 3rem;
+        }
+
+    }
+}
