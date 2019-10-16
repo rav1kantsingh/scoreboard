@@ -1,37 +1,54 @@
+#main-page{
+background-color: #111111;
+
 .card{
-    width:25vw;
+    width:20vw;
+    height: 65vh;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 2rem;
     margin: 0 .2rem;
-    border: 0.1rem black solid;
+    background-color: #222222;
+    border: 0.05rem #a0a0a0 solid;
+    
 
     .circle{
-        border: 0.3rem black solid;
-        width: 10rem;
-        height: 10rem;
+        border: 0.3rem #00B7FE solid;
+        width: 8rem;
+        height: 8rem;
         border-radius: 5rem;
         display: flex;
         align-items: center;
         justify-content: center;
 
         span{
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 200;
             font-size: 5rem;
+            color: white;
         }
     }
 
     h2{
+        font-family: 'Raleway', sans-serif;
+        text-align: center;
         margin-top: 1rem;
+        color: antiquewhite;
     }
 
     #desc{
+        font-family: 'Nunito',sans-serif;
         font-size: 1.5rem;
         text-align: center;
+        color: rgb(187, 187, 187);
     }
     #crit{
-        font-size: 1.25rem;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 800;
+        font-size: 1.2rem;
         text-align: center;
+        color:rgb(184, 184, 184); 
     }
+}
 }

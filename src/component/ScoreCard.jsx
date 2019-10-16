@@ -5,9 +5,9 @@ export default class ScoreCard extends React.Component {
         super();
         this.state = {
             score: 10,
-            title: 'I am Ravikant Singh',
-            desc: 'I am student of computer science and engineering and I am studying in NIT Patna',
-            crit: 'CSE'
+            title: 'PERFORMANCE',
+            desc: 'The expressibility and uniqueness of the act',
+            crit: 'RAVIKANT SINGH'
         }
     }
     render() {
