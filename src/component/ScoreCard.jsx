@@ -18,7 +18,9 @@ export default class ScoreCard extends React.Component {
                 </div>
                 <h2>{this.state.title}</h2>
                 <p id='desc'>{this.state.desc}</p>
+                <div>
                 <p id='crit'>{this.state.crit}</p>
+                </div>
             </div>
         )
     }
