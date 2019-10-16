@@ -1,5 +1,6 @@
 import React from "react";
 import LeaderboardListItem from "./LeaderboardListItem";
+import firebase from '../firebase';
 
 export default class Leaderboard extends React.Component {
   constructor() {
@@ -29,4 +30,3 @@ export default class Leaderboard extends React.Component {
       )
     }
   }
-  
