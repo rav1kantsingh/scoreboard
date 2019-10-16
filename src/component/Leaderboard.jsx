@@ -26,11 +26,12 @@ export default class Leaderboard extends React.Component {
   }
 
   render() {
+    this.state.data.sort((a, b) => b.score - a.score);
     return (
       <div className="listbox">
         <ul>
-          {this.state.data.map(item => {
-            return <div><LeaderboardListItem rank={item.rank} branch={item.branch} score={item.score} /></div>
+          {this.state.data.map((item,index) => {
+            return <div><LeaderboardListItem rank={index+1} branch={item.branch} score={item.score} /></div>
           })}
         </ul>
       </div>
