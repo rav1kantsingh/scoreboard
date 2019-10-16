@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import MainPage from './pages/MainPage';
 
 import LeaderboardListItem from './component/LeaderboardListItem';
-import Leaderboard from './component/Leaderboard';
+import Leaderboard from './pages/Leaderboard';
 
 function App() {
   return (
