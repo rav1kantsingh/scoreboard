@@ -1,5 +1,5 @@
 import React from "react";
-import LeaderboardListItem from "../component/LeaderboardListItem";
+import LeaderboardListItem from "./LeaderboardListItem";
 import firebase from '../utils/firebase';
 
 export default class Leaderboard extends React.Component {
