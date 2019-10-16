@@ -1,0 +1,46 @@
+.listItem{
+    width: 22vw;
+    height: 15vh;
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(240, 240, 240);
+    border-radius: 1vw;
+    margin-bottom: 0.4rem;
+    align-items: center;
+    
+        #rank{
+            font-size: 3rem;
+            margin-left: 2rem;
+            color: rgb(0, 0, 0);
+            width: 1vw;
+            flex: 0.4;
+        }
+        
+        #branch{
+            font-size: 2rem;
+            color: rgb(0, 0, 0);
+            
+            flex: 1;
+        }
+        .scoreBox{
+            width: 2vw;
+            height: 11vh;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            background-color: rgb(0, 156, 218);
+            border: 0ch;
+            border-radius: 0.7vw;
+            flex: 0.5;
+            align-items: center;
+            margin-right: -2rem;
+            box-shadow: 4px 4px 8px rgb(0, 86, 121);
+    
+            #score{
+                font-size: 3rem;
+                color: white;
+
+            }
+        }
+   
+}
