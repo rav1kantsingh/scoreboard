@@ -2,8 +2,18 @@
     height: 100vh;
     width: 30vw;
     display: flex;
+    align-content: center;
     flex-direction: column;
     border: 0.05rem black solid;
-    background-color: rgb(63, 63, 63)
+    background-color: #202020;
+
+    #title{
+        margin-top: 1.1rem;
+        align-self: center;
+            color: rgb(216, 216, 216);
+            font-size: 2.5rem;
+            font-family: 'Raleway', sans-serif;
+
+    }
 }
    

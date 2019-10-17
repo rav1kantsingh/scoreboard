@@ -27,7 +27,10 @@ export default class Leaderboard extends React.Component {
 
   render() {
     return (
+      
       <div className="listbox">
+      <div id='title'>LEADERBOARD</div>
+
         <ul>
           {this.state.data.map(item => {
             return <div><LeaderboardListItem rank={item.rank} branch={item.branch} score={item.score} /></div>
