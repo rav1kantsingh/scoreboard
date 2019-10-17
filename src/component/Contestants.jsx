@@ -2,7 +2,7 @@ import React from "react";
 import LeaderboardListItem from "./LeaderboardListItem";
 import firebase from '../utils/firebase';
 
-export default class Leaderboard extends React.Component {
+export default class Contestants extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -11,7 +11,7 @@ export default class Leaderboard extends React.Component {
   }
 
   componentDidMount(){
-    const dataRef = firebase.database().ref('ranking');
+    const dataRef = firebase.database().ref('performers');
     dataRef.on('value', snapshot => {
       const dataObject = snapshot.val();
       const dataList = Object.keys(dataObject).map(key => ({
@@ -29,11 +29,11 @@ export default class Leaderboard extends React.Component {
     return (
       
       <div className="listbox">
-      <div id='title'>LEADERBOARD</div>
+      <div id='title'>CONTESTANTS</div>
 
         <ul>
           {this.state.data.map((item,index) => {
-            return <div><LeaderboardListItem rank={index+1} branch={item.branch} score={item.score} /></div>
+            return <div><LeaderboardListItem rank={index+1} branch={item.name} score={item.score} /></div>
           })}
         </ul>
       </div>

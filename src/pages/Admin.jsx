@@ -1,6 +1,7 @@
 import React from 'react';
 import ScoreCard from '../component/ScoreCard';
 import Leaderboard from '../component/Leaderboard';
+import Contestants from '../component/Contestants';
 
 export default class MainPage extends React.Component {
 
@@ -14,6 +15,9 @@ export default class MainPage extends React.Component {
                     <div className='card-container'>
                         <ScoreCard editable='true' />
                     </div>
+                </div>
+                <div className='contestants'>
+                    <Contestants />
                 </div>
             </div>
         )

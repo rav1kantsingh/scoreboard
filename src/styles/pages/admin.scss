@@ -1,0 +1,14 @@
+.main-page{
+    display: flex;
+    flex-direction: column;
+
+    .ranking{
+        flex: 1;
+    }
+    .main{
+        flex: 1;
+    }
+    .contestants{
+        flex: 1;
+    }
+}
