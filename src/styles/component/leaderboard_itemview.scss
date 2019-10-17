@@ -1,42 +1,50 @@
 .listItem{
     width: 22vw;
-    height: 15vh;
+    height: 11vh;
     display: flex;
     flex-direction: row;
     background-color: rgb(240, 240, 240);
     border-radius: 1vw;
     margin-bottom: 0.4rem;
     align-items: center;
+    box-shadow: 4px 4px 8px rgb(58, 58, 58);
+
     
         #rank{
-            font-size: 3rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 200;
+            font-size: 2.3rem;
             margin-left: 2rem;
-            color: rgb(0, 0, 0);
+            color: rgb(15, 15, 15);
             width: 1vw;
             flex: 0.4;
         }
         
         #branch{
+            font-family: 'Raleway', sans-serif;
+            font-weight: 800;
             font-size: 2rem;
-            color: rgb(0, 0, 0);
+            color: rgb(29, 29, 29);
             flex: 1;
         }
         .scoreBox{
-            width: 2vw;
-            height: 11vh;
+            height: 9vh;
+            padding: 0 1rem;
             display: flex;
             align-content: center;
             justify-content: center;
             background-color: rgb(0, 156, 218);
             border: 0ch;
             border-radius: 0.7vw;
-            flex: 0.5;
+            flex: 0.3;
             align-items: center;
             margin-right: -2rem;
             box-shadow: 4px 4px 8px rgb(0, 86, 121);
     
             #score{
-                font-size: 3rem;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 200;
+                font-size: 2.4rem;
                 color: white;
             }
         }

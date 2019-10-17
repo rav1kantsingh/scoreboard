@@ -7,13 +7,15 @@ export default class MainPage extends React.Component {
         return (
             <div id='main-page'>
                 <div className='ranking'>
-                <Leaderboard />
+                    <Leaderboard />
                 </div>
-                <div className = 'main'>
-                    <div className = 'card-container'>
-                    <ScoreCard />
-                    <ScoreCard />
-                    <ScoreCard />
+                <div className='main'>
+
+                    <div id='card-title'>Judges Scores</div>
+                    <div className='card-container'>
+                        <ScoreCard />
+                        <ScoreCard />
+                        <ScoreCard />
                     </div>
                 </div>
             </div>

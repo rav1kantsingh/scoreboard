@@ -9,6 +9,11 @@
         flex: 3;
         width: 60vw;
         height: 100vh;
+        
+        #card-title{
+            font-size: 2rem;
+            text-align: center;
+        }
 
         .card-container{
             display: flex;
