@@ -8,8 +8,12 @@
     margin-bottom: 0.4rem;
     align-items: center;
     box-shadow: 4px 4px 8px rgb(58, 58, 58);
-
-    
+    .marker{
+        flex :0.1;
+        border-top-left-radius: 1vw;
+        border-bottom-left-radius: 1vw;
+        background-color: #d4d806;
+    }
         #rank{
             font-family: 'Montserrat', sans-serif;
             font-weight: 200;
@@ -33,8 +37,8 @@
             display: flex;
             align-content: center;
             justify-content: center;
-            background-color: rgb(0, 156, 218);
-            border: 0ch;
+  background: -webkit-linear-gradient(left bottom,rgb(0, 156, 218), rgb(0, 103, 144));
+  order: 0ch;
             border-radius: 0.7vw;
             flex: 0.3;
             align-items: center;
