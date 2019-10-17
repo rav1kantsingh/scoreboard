@@ -5,28 +5,24 @@ export default class ScoreCard extends React.Component {
     constructor() {
         super();
         this.state = {
-            score: 10,
-            title: 'PERFORMANCE',
-            desc: 'The expressibility and uniqueness of the act',
-            crit: 'RAVIKANT SINGH',
-            value: ''
+            score:0
         }
     }
 
     handleChange = (event) => {
-        this.setState({ value: event.target.value });
+        this.setState({ score: event.target.value });
     }
 
     handleSubmit = (event) => {
-        this.updateDB(this.state.value);
+        this.updateDB(this.state.score);
         event.preventDefault();
     }
 
-    updateDB = (value) => {
+    updateDB = (score) => {
         const key = firebase.database().ref().child('temp').push().key;
         const updates = {};
-        updates['/temp1/' + key] = value;
-        updates['/temp2/' + key + '/' + key] = value;
+        updates['/temp1/' + key] = score;
+        updates['/temp2/' + key + '/' + key] = score;
 
         return firebase.database().ref().update(updates);
     }
@@ -37,14 +33,14 @@ export default class ScoreCard extends React.Component {
             <div className='card'>
                 <div className='circle'>
                     {edit ? <form onSubmit={this.handleSubmit}>
-                        <input type="text" value={this.state.value} onChange={this.handleChange} />
+                        <input type="text" value={this.state.score} onChange={this.handleChange} />
                         <input type="submit" value="Submit" />
-                    </form> : <span>{this.state.score}</span>}
+                    </form> : <span>{this.props.score}</span>}
                 </div>
-                <h2>{this.state.title}</h2>
-                <p id='desc'>{this.state.desc}</p>
+                <h2>PERFORMANCE</h2>
+                <p id='desc'>{this.props.desc}</p>
                 <div>
-                    <p id='crit'>{this.state.crit}</p>
+                    <p id='crit'>{this.props.judge}</p>
                 </div>
             </div>
         )
