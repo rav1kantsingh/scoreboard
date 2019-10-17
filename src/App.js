@@ -1,8 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import MainPage from './pages/MainPage';
-import LeaderboardListItem from './component/LeaderboardListItem';
-import Leaderboard from './component/Leaderboard';
+import Admin from './pages/Admin';
 
 function App() {
   return (
@@ -10,9 +9,7 @@ function App() {
       <Router>
         <Switch>
           <Route path='/' component={MainPage}/>
-          <Route path='/leaderboardListItem' component={LeaderboardListItem}/>
-          <Route path='/leaderboard' component={Leaderboard}/>
-          <Route path='/admin' component={Leaderboard}/>
+          <Route path='/admin' component={Admin}/>
         </Switch>
       </Router>
     </div>
