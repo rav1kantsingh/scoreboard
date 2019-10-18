@@ -34,7 +34,7 @@ export default class MainPage extends React.Component {
         </div>
         <div className='main'>
           <div className='web-header'>
-            <div className='web-title1'>Eccentrica</div>
+            <div className='web-title1'>ECCENTRICA</div>
             <div className='web-title2'>3.0</div>
           </div>
           <div id='scores'>

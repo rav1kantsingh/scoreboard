@@ -6,7 +6,8 @@ export default class ScoreCard extends React.Component {
     constructor() {
         super();
         this.state = {
-            score: 0
+            score: 0,
+            desc: 'Based on uniqueness, creativity and expressibility'
         }
     }
 
@@ -31,11 +32,11 @@ export default class ScoreCard extends React.Component {
     render() {
         return (
             <div className='card'>
-                <div className='circle'>
-                    <TextInput/>
+                <div className='inputScore'>
+                    <TextInput textAlign={'center'}/>
                 </div>
                 <h2>PERFORMANCE</h2>
-                <p id='desc'>{this.props.desc}</p>
+                <p id='desc'>{this.state.desc}</p>
                 <div>
                     <p id='crit'>{this.props.judge}</p>
                 </div>

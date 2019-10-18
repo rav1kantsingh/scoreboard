@@ -1,6 +1,6 @@
 .cListitem{
-    width: 30vw;
-    height: 11vh;
+    width: 25vw;
+    height: 6vw;
     display: flex;
     flex-direction: row;
     justify-items: right;
@@ -10,13 +10,11 @@
     align-items: center;
     box-shadow: 4px 4px 8px rgb(58, 58, 58);
     .cMarker{
-        width: 1.5rem;
+        width: 15%;
         height: inherit;
-        flex :0.2;
         border-top-left-radius: 1vw;
         border-bottom-left-radius: 1vw;
         background-color: #cf1f00;
-        
     }
     .cVertical{
         display: flex;
