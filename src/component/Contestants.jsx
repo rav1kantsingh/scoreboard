@@ -1,5 +1,5 @@
 import React from "react";
-import LeaderboardListItem from "./LeaderboardListItem";
+import ContestantItem from "./ContestantItem";
 import firebase from '../utils/firebase';
 
 export default class Contestants extends React.Component {
@@ -32,7 +32,7 @@ export default class Contestants extends React.Component {
       <div id='title'>CONTESTANTS</div>
         <ul>
           {this.state.data.map((item,index) => {
-            return <div><LeaderboardListItem rank={index+1} branch={item.name} score={item.score} /></div>
+            return <div><ContestantItem name={item.name} branch={item.branch} event={item.event} /></div>
           })}
         </ul>
       </div>
