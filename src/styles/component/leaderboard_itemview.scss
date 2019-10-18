@@ -14,23 +14,7 @@
         border-bottom-left-radius: 1vw;
         background-color: #d4d806;
     }
-        #rank{
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 200;
-            font-size: 2.3rem;
-            margin-left: 2rem;
-            color: rgb(15, 15, 15);
-            width: 1vw;
-            flex: 0.4;
-        }
         
-        #branch{
-            font-family: 'Raleway', sans-serif;
-            font-weight: 800;
-            font-size: 2rem;
-            color: rgb(29, 29, 29);
-            flex: 1;
-        }
         .scoreBox{
             height: 9vh;
             padding: 0 1rem;
@@ -53,4 +37,22 @@
             }
         }
    
+}
+
+#rank{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    font-size: 2.3rem;
+    margin-left: 2rem;
+    color: rgb(15, 15, 15);
+    width: 1vw;
+    flex: 0.4;
+}
+
+#branch{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    color: rgb(29, 29, 29);
+    flex: 1;
 }
