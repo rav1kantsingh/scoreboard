@@ -30,7 +30,6 @@ export default class Contestants extends React.Component {
       
       <div className="listbox">
       <div id='title'>CONTESTANTS</div>
-
         <ul>
           {this.state.data.map((item,index) => {
             return <div><LeaderboardListItem rank={index+1} branch={item.name} score={item.score} /></div>
