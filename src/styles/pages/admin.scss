@@ -1,12 +1,17 @@
 .main-page{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 
     .ranking{
         flex: 1;
     }
     .main{
         flex: 1;
+        .card-container{
+            .details{
+                color: wheat;
+            }
+        }
     }
     .contestants{
         flex: 1;
