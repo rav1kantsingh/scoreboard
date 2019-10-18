@@ -12,7 +12,7 @@ export default class MainPage extends React.Component {
   }
 
   componentDidMount() {
-    const dataRef = firebase.database().ref('current-score');
+    const dataRef = firebase.database().ref('');
     dataRef.on('value', snapshot => {
       const dataObject = snapshot.val();
 
