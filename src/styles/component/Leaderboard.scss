@@ -3,18 +3,24 @@
     width: 30vw;
     display: flex;
     align-content: center;
+    padding-top: 2rem;
     overflow: auto;
     flex-direction: column;
     border: 0.05rem black solid;
     background-color: #202020;
 
     #title{
-        margin-top: 1.1rem;
+        margin: 1 0rem;
+        width: 100%;
+        text-align: center;
+        color:rgb(0, 156, 218);
+        //background-color: rgb(224, 224, 224);
         align-self: center;
-            color: rgb(216, 216, 216);
+            
             font-size: 2.5rem;
             font-family: 'Raleway', sans-serif;
-
+            font-weight: 800;
+            margin-bottom: 1rem;
     }
 }
    

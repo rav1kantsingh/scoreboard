@@ -9,18 +9,60 @@
         flex: 3;
         width: 60vw;
         height: 100vh;
+        background-image: url("https://www.macbookproslow.com/wp-content/uploads/macbook-pro-video-editing.png");
+        background-position: 'center';
+        background-size: 'cover';
+        background-size: 100%;
+        background-repeat : 'no-repeat';
+
+
+        .web-header{
+            width: 100%;
+            height: 50%;
+            flex-direction: row;
+           
+            .web-title1{
+                font-family: 'Raleway', sans-serif;
+                text-align: center;
+                margin-top: 1rem;
+                color: antiquewhite;
+                font-size: 3rem;
+                opacity: 1.0;
         
+            }
+            .web-title2{
+                font-family: 'Raleway', sans-serif;
+                text-align: center;
+                margin-top: 1rem;
+                color: rgb(72, 121, 255);
+                font-size: 3rem;
+                opacity: 1.0;
+        
+            }
+        }
         #card-title{
+            font-family: 'Raleway', sans-serif;
             font-size: 2rem;
-            text-align: center;
+            text-align: left;
+            color: rgb(185, 185, 185);
+            margin-left: 10rem;
+            margin-top: 1rem;
+        
         }
 
         .card-container{
+            margin-right: 7rem;
+            margin-left: 7rem;
             display: flex;
+            margin-top: 1rem;
             flex-direction: row;
-            margin-top: 40vh;
             padding:0 3rem;
         }
 
     }
+}
+
+#scores{
+    background-color: rgba(34, 34, 34, 0.637);
+    opacity: 1;    
 }

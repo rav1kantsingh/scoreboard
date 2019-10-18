@@ -2,21 +2,23 @@
 background-color: #111111;
 
 .card{
-    width:25vw;
-    height: 28rem;
+    width:19vw;
+    height: 19rem;
     display: flex;
+    flex: 0%;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin: 0 1rem;
+    margin: 0 0.4rem;
     background-color: #222222;
-    border: 0.05rem #a0a0a0 solid;
+    border: 0.05rem #858585 solid;
     
 
     .circle{
         border: 0.3rem #00B7FE solid;
-        width: 8rem;
-        height: 8rem;
+        width: 6rem;
+        height: 6rem;
+        margin-top: 0.5rem;
         border-radius: 5rem;
         display: flex;
         align-items: center;
@@ -25,7 +27,7 @@ background-color: #111111;
         span{
             font-family: 'Montserrat', sans-serif;
             font-weight: 200;
-            font-size: 5rem;
+            font-size: 4rem;
             color: white;
         }
     }
@@ -35,12 +37,16 @@ background-color: #111111;
         text-align: center;
         margin-top: 1rem;
         color: antiquewhite;
+        font-size: 1.25rem;
     }
 
     #desc{
         font-family: 'Nunito',sans-serif;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         text-align: center;
+        margin-top: 0%;
+        padding-right: 0.1rem;
+        padding-left: 0.1rem;
         color: rgb(187, 187, 187);
     }
     #crit{

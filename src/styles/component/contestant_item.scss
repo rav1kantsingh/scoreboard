@@ -1,0 +1,54 @@
+.cListitem{
+    width: 30vw;
+    height: 11vh;
+    display: flex;
+    flex-direction: row;
+    justify-items: right;
+    background-color: rgb(240, 240, 240);
+    border-radius: 1vw;
+    margin-bottom: 0.4rem;
+    align-items: center;
+    box-shadow: 4px 4px 8px rgb(58, 58, 58);
+    .cMarker{
+        width: 1.5rem;
+        height: inherit;
+        flex :0.2;
+        border-top-left-radius: 1vw;
+        border-bottom-left-radius: 1vw;
+        background-color: #cf1f00;
+        
+    }
+    .cVertical{
+        display: flex;
+        flex-direction: column;
+    
+        #cName{
+            font-family: 'Raleway', sans-serif;
+            font-weight: 800;
+            font-size: 1.1rem;
+            margin-left: 1.5rem;
+            color: rgb(0, 84, 153);
+        }
+        
+        #cEvent{
+            font-family: 'Raleway', sans-serif;
+            font-weight: 800;
+            font-size: 0.8rem;
+            margin-left: 1.5rem;
+            color: rgb(29, 29, 29);
+        }
+    }
+    .cBranch{
+        font-family: 'Raleway', sans-serif;
+        font-weight: 800;
+        font-size: 2rem;
+        flex: 1;
+        margin-left: 0;
+        text-align: right;
+        margin-right: 0.5rem;
+       bottom: 0;
+        color: rgba(0, 0, 0, 0.315);
+    }
+      
+   
+}
