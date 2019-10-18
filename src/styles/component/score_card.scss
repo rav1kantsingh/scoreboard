@@ -58,3 +58,23 @@ background-color: #111111;
     }
 }
 }
+
+.inputScore{
+    width: 6rem;
+    border: 0.05rem rgb(0, 156, 218) solid;
+    border-radius: 0.2rem;
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    span{
+        align-content: center;
+        justify-content: center;
+        
+        font-family: 'Raleway', sans-serif;
+        font-weight: 200;
+        font-size: 4rem;
+        color: white;
+    }
+}
