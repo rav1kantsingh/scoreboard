@@ -40,8 +40,8 @@ export default class MainPage extends React.Component {
           <div id='scores'>
           <div id='card-title'>Judges Scores</div>
           <div className='card-container'>
-            {this.state.data.map(item => {
-              return <ScoreCard desc={item.desc} judge={item.judgeName} score={item.score} />
+            {this.state.data.map((item,index) => {
+              return <ScoreCard desc={item.desc} key={index+1} judge={item.judgeName} score={item.score} />
             })}
           </div></div>
         </div>

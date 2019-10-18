@@ -33,7 +33,7 @@ export default class Leaderboard extends React.Component {
 
         <ul>
           {this.state.data.map((item,index) => {
-            return <div><LeaderboardListItem  rank={index+1} branch={item.branch} score={item.score} /></div>
+            return <div><LeaderboardListItem  rank={index+1} key={index+1} branch={item.branch} score={item.score} /></div>
           })}
         </ul>
       </div>

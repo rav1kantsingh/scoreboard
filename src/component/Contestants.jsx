@@ -23,16 +23,18 @@ export default class Contestants extends React.Component {
       })
     })
   }
+  handleClick = (index) => {
+    console.log("I was clicked",index);
+  }
 
   render() {
-    this.state.data.sort((a, b) => b.score - a.score);
     return (
       
       <div className="listbox">
-      <div id='title'>CONTESTANTS</div>
+      <div id='title' >CONTESTANTS</div>
         <ul>
           {this.state.data.map((item,index) => {
-            return <div><ContestantItem name={item.name} branch={item.branch} event={item.event} /></div>
+            return <div onClick={() => this.handleClick(index+1)} key={index}><ContestantItem  name={item.name} branch={item.branch} event={item.event}  /></div>
           })}
         </ul>
       </div>
