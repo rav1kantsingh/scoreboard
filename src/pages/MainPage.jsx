@@ -7,33 +7,36 @@ export default class MainPage extends React.Component {
   constructor() {
     super();
     this.state = {
-      data: []
+      data: [],
+      event: "DANCING"
     }
+
   }
 
   componentDidMount() {
-    const dataRef = firebase.database().ref('JUDGES');
+    const dataRef = firebase.database().ref(this.state.event+'/JUDGES');
     dataRef.on('value', snapshot => {
+
       var dataList = [];
 
       const dataObject = snapshot.val();
-      // console.log("aman", dataObject);
-        snapshot.forEach(function (childSnapshot) {
-          var singleeObj = {};
-
-          singleeObj['judge_id'] = childSnapshot.key;
-          singleeObj['judge_name'] = childSnapshot.val()['name'];
-          singleeObj['judge_content'] = childSnapshot.val()['contents'];
-          singleeObj['score'] = childSnapshot.val()['score'];
-          console.log("1", childSnapshot.val()['name']);
-          console.log("1", childSnapshot.val()['contents']);
-          console.log("1", childSnapshot.val()['score']);
-
-          dataList.push(singleeObj);
-
-        });
-        console.log("aman", dataList);
-      
+      var i = 3;
+      for (var key in dataObject) {
+        var singleeObj = {};
+        if(i<=0){
+          singleeObj['judge_id'] = key;
+          singleeObj['score'] = '?';
+          console.log('?');
+        }
+        else{
+          singleeObj['judge_id'] = key;
+          singleeObj['score'] = dataObject[key];
+          console.log(dataObject[key]);
+        }
+        i--;
+        dataList.push(singleeObj);
+       
+      }
       this.setState({
         data: dataList
       })
@@ -45,7 +48,7 @@ export default class MainPage extends React.Component {
     return (
       <div className='main-page'>
         <div className='ranking'>
-          <Leaderboard />
+          <Leaderboard event_name={this.state.event}/>
         </div>
         <div className='main'>
           <div className='web-header'>

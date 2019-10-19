@@ -13,7 +13,7 @@ export default class MainPage extends React.Component {
       event: '',
       data: [],
       index: '',
-      read: 0
+      read:0
     }
   }
 
@@ -41,53 +41,68 @@ export default class MainPage extends React.Component {
         read: dataObject
       })
     })
-
+    
   }
 
   handleSubmitClicked = (score) => {
     this.updateDB(score);
     this.updateBRANCH(score);
     this.updateEVENT(score);
+    this.updateJUDGE(score);
   }
 
   updateDB = (score) => {
-
+   
     const updates = {};
-    updates[this.state.index + 1 + "/judge1"] = score;
+    updates[this.state.index+1+"/judge1"] = score;
     console.log(this.state.read)
     return firebase.database().ref('/performers').update(updates);
   }
   updateBRANCH = (score) => {
     var oldScore = 0;
-    firebase.database().ref('/total-score/' + this.state.branch).on('value', function (snapshot) {
+    firebase.database().ref('/total-score/'+this.state.branch).on('value', function(snapshot) {
       // console.log("old",snapshot.val());
       oldScore = (parseInt(snapshot.val()));
-    });
-
+  });
+   
     //update branch score
-    const updates = {};
-    updates["/" + this.state.branch] = score + oldScore;
+    const updates={};
+    updates["/"+this.state.branch] = score+oldScore;
     // console.log(this.state.read)
     return firebase.database().ref('/total-score').update(updates);
-
-
+  
+  
   }
   updateEVENT = (score) => {
     var oldScore = 0;
-    firebase.database().ref('/' + this.state.event + '/' + this.state.branch).on('value', function (snapshot) {
-      console.log("old", snapshot.val());
+    firebase.database().ref('/'+this.state.event+'/'+this.state.branch).on('value', function(snapshot) {
+      console.log("old",snapshot.val());
       oldScore = (parseInt(snapshot.val()));
-    });
-
+  });
+   
     //update branch score
-    const updates = {};
-    updates["/" + this.state.branch] = score + oldScore;
+    const updates={};
+    updates["/"+this.state.branch] = score+oldScore;
     console.log(this.state.read)
-    return firebase.database().ref('/' + this.state.event).update(updates);
-
-
+    return firebase.database().ref('/'+this.state.event).update(updates);
+  
+  
   }
-
+  updateJUDGE = (score) => {
+    var oldScore = 0;
+    firebase.database().ref('/'+'JUDGE'+'/'+this.state.branch).on('value', function(snapshot) {
+      console.log("old",snapshot.val());
+      oldScore = (parseInt(snapshot.val()));
+  });
+   
+    //update branch score
+    const updates={};
+    updates["/"+this.state.branch] = score+oldScore;
+    console.log(this.state.read)
+    return firebase.database().ref('/'+this.state.event).update(updates);
+  
+  
+  }
   handleClick = (index) => {
     this.setState({
       name: this.state.data[index].name,
@@ -99,17 +114,15 @@ export default class MainPage extends React.Component {
 
   render() {
     return (
-      <div className='admin-page'>
+      <div className='main-page'>
         <div className='ranking'>
           <Leaderboard />
         </div>
         <div className='main'>
           <div className='card-container'>
-            <div className='contasent_details'>
-              <h2 className='details'>{this.state.name}</h2>
-              <h3 className='details'>{this.state.branch}</h3>
-              <h3 className='details'>{this.state.event}</h3>
-            </div>
+            <h2 className='details'>{this.state.name}</h2>
+            <h3 className='details'>{this.state.branch}</h3>
+            <h3 className='details'>{this.state.event}</h3>
             <AdminScoreCard data={this.state.data} handleSubmitClicked={this.handleSubmitClicked} />
           </div>
         </div>

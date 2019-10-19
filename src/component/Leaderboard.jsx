@@ -3,15 +3,16 @@ import LeaderboardListItem from "./LeaderboardListItem";
 import firebase from '../utils/firebase';
 
 export default class Leaderboard extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      data: []
+      data: [],
+      event: this.props.event_name
     }
   }
 
   componentDidMount() {
-    const dataRef = firebase.database().ref('total-score');
+    const dataRef = firebase.database().ref(this.state.event+'/leaderboard');
     dataRef.on('value', snapshot => {
       var dataList = [];
 
