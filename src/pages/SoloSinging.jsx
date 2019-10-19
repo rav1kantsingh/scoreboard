@@ -8,9 +8,8 @@ export default class MainPage extends React.Component {
     super();
     this.state = {
       data: [],
-      event: "DANCING"
+      event: "SOLO-SINGING"
     }
-
   }
 
   componentDidMount() {
