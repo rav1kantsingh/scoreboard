@@ -12,18 +12,33 @@ export default class MainPage extends React.Component {
   }
 
   componentDidMount() {
-    const dataRef = firebase.database().ref('total-score');
+    const dataRef = firebase.database().ref('JUDGES');
     dataRef.on('value', snapshot => {
+      var dataList = [];
+
       const dataObject = snapshot.val();
+      // console.log("aman", dataObject);
+        snapshot.forEach(function (childSnapshot) {
+          var singleeObj = {};
 
-      const dataList = Object.keys(dataObject).map(key => ({
-        ...dataObject[key],
-      }));
+          singleeObj['judge_id'] = childSnapshot.key;
+          singleeObj['judge_name'] = childSnapshot.val()['name'];
+          singleeObj['judge_content'] = childSnapshot.val()['contents'];
+          singleeObj['score'] = childSnapshot.val()['score'];
+          console.log("1", childSnapshot.val()['name']);
+          console.log("1", childSnapshot.val()['contents']);
+          console.log("1", childSnapshot.val()['score']);
 
+          dataList.push(singleeObj);
+
+        });
+        console.log("aman", dataList);
+      
       this.setState({
         data: dataList
       })
     })
+
   }
 
   render() {
@@ -38,12 +53,12 @@ export default class MainPage extends React.Component {
             <div className='web-title2'>3.0</div>
           </div>
           <div id='scores'>
-          <div id='card-title'>Judges Scores</div>
-          <div className='card-container'>
-            {this.state.data.map((item,index) => {
-              return <ScoreCard desc={item.desc} key={index+1} judge={item.judgeName} score={item.score} />
-            })}
-          </div></div>
+            <div id='card-title'>Judges Scores</div>
+            <div className='card-container'>
+              {this.state.data.map((item, index) => {
+                return <ScoreCard desc={item.judge_content} key={index + 1} judge={item.judge_name} score={item.score} />
+              })}
+            </div></div>
         </div>
       </div>
     )
