@@ -101,7 +101,7 @@ export default class MainPage extends React.Component {
     return (
       <div className='admin-page'>
         <div className='ranking'>
-          <Leaderboard />
+        <Contestants data={this.state.data} handleClick={this.handleClick} />
         </div>
         <div className='main'>
           <div className='card-container'>
@@ -112,9 +112,6 @@ export default class MainPage extends React.Component {
             </div>
             <AdminScoreCard data={this.state.data} handleSubmitClicked={this.handleSubmitClicked} />
           </div>
-        </div>
-        <div className='contestants'>
-          <Contestants data={this.state.data} handleClick={this.handleClick} />
         </div>
       </div>
     )

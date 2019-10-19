@@ -9,7 +9,15 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route exact path='/' component={MainPage}/>
+          <Route exact path='/solo-dancing' component={MainPage}/>
+          <Route exact path='/solo-singing' component={MainPage}/>
+          <Route exact path='/solo-dancing' component={MainPage}/>
+          <Route exact path='/solo-dancing' component={MainPage}/>
+          <Route exact path='/solo-dancing' component={MainPage}/>
+          <Route exact path='/solo-dancing' component={MainPage}/>
+          <Route exact path='/solo-dancing' component={MainPage}/>
+          <Route exact path='/solo-dancing' component={MainPage}/>
+
           <Route path='/admin' component={Admin}/>
           <Route path='/contestant' component={ContestantItem}/>
         </Switch>
