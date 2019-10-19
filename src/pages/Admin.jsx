@@ -13,6 +13,7 @@ export default class MainPage extends React.Component {
       event: '',
       data: [],
       index: '',
+      read:0
     }
   }
 
@@ -28,14 +29,16 @@ export default class MainPage extends React.Component {
         data: dataList
       })
     })
-  }
-  handleClick = (index) => {
-    this.setState({
-      name: this.state.data[index].name,
-      branch: this.state.data[index].branch,
-      event: this.state.data[index].event,
-      index: index
+
+    //reading current total score of branch.
+    const totalScore = firebase.database().ref('/total-score'+ this.state.branch);
+    totalScore.on('value', snapshot => {
+      const dataObject = snapshot.child(this.state.branch).val();
+      this.setState({
+        read: dataObject
+      })
     })
+    
   }
 
   handleSubmitClicked = (score) => {
@@ -45,10 +48,18 @@ export default class MainPage extends React.Component {
   updateDB = (score) => {
     const key = firebase.database().ref().child('temp').push().key;
     const updates = {};
-    updates['/temp1/' + key] = score;
-    updates['/total-score/' + this.state.branch + '/'] = score;
+    console.log(this.state.read)
 
     return firebase.database().ref().update(updates);
+  }
+
+  handleClick = (index) => {
+    this.setState({
+      name: this.state.data[index].name,
+      branch: this.state.data[index].branch,
+      event: this.state.data[index].event,
+      index: index
+    })
   }
 
   render() {

@@ -57,7 +57,7 @@ export default class ScoreCard extends React.Component {
                 <div>
                     <p id='crit'>{this.props.judge}</p>
                 </div>
-                <button onClick={() => this.props.handleSubmitClicked(this.state.value)}>SUBMIT</button>
+                <button onClick={() => this.props.handleSubmitClicked(parseInt(this.state.value))}>SUBMIT</button>
             </div>
         )
     }
