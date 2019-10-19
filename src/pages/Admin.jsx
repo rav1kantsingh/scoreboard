@@ -1,6 +1,5 @@
 import React from 'react';
 import AdminScoreCard from '../component/AdminScoreCard';
-import Leaderboard from '../component/Leaderboard';
 import Contestants from '../component/Contestants';
 import firebase from '../utils/firebase';
 

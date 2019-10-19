@@ -8,7 +8,7 @@ export default class MainPage extends React.Component {
     super();
     this.state = {
       data: [],
-      event: "SOLO-SINGING"
+      event: "SOLO_SINGING"
     }
   }
 

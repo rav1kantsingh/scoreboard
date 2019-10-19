@@ -2,6 +2,12 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import SoloDancing from './pages/SoloDancing';
 import SoloSinging from './pages/SoloSinging';
+import GroupDancing from './pages/GroupDancing';
+import DuetSinging from './pages/DuetSinging';
+import StandUp from './pages/StandUp';
+import Poetry from './pages/Poetry';
+import HindiDebate from './pages/HindiDebate';
+import EnglishDebate from './pages/EnglishDebut';
 import Admin from './pages/Admin';
 import ContestantItem from './component/ContestantItem';
 
@@ -10,15 +16,15 @@ function App() {
     <div className="App">
       <Router>
         <Switch>
-          <Route path='/overall' component={MainPage}/>
+          {/* <Route path='/overall' component={MainPage}/> */}
           <Route path='/solo-dancing' component={SoloDancing}/>
           <Route path='/solo-singing' component={SoloSinging}/>
-          <Route path='/group-dancing' component={MainPage}/>
-          <Route path='/duet-singing' component={MainPage}/>
-          <Route path='/standup' component={MainPage}/>
-          <Route path='/poetry' component={MainPage}/>
-          <Route path='/hindi-debate' component={MainPage}/>
-          <Route path='/english-debate' component={MainPage}/>
+          <Route path='/group-dancing' component={GroupDancing}/>
+          <Route path='/duet-singing' component={DuetSinging}/>
+          <Route path='/standup' component={StandUp}/>
+          <Route path='/poetry' component={Poetry}/>
+          <Route path='/hindi-debate' component={HindiDebate}/>
+          <Route path='/english-debate' component={EnglishDebate}/> 
 
           <Route path='/admin' component={Admin}/>
           <Route path='/contestant' component={ContestantItem}/>
