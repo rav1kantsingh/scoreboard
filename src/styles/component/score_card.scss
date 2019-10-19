@@ -1,18 +1,13 @@
-.main-page{
-    background-color: #111111;
-
     .card{
         width:19vw;
         height: 19rem;
         display: flex;
-        flex: 0%;
         align-items: center;
         justify-content: center;
         flex-direction: column;
         margin: 0 0.4rem;
         background-color: #222222;
         border: 0.05rem #858585 solid;
-    
 
         .circle{
             border: 0.3rem #00B7FE solid;
@@ -40,7 +35,6 @@
             font-size: 1.25rem;
         }
     }
-}
 
 #desc{
     font-family: 'Nunito',sans-serif;

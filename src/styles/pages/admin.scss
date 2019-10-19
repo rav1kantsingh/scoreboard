@@ -1,16 +1,24 @@
-.main-page{
+.admin-page{
     display: flex;
     flex-direction: row;
+    background-color: black;s
 
     .main{
         flex: 1;
+        background-image: url("../images/trans.png");
+        background-position: 'center';
+        background-size: 'cover';
+        background-size: 100%;
+        background-repeat : 'no-repeat';
         .card-container{
+            height: 100%;
+            flex-direction: column;
+            .contasent_details{
+            
+            }
             .details{
                 color: wheat;
             }
         }
-    }
-    .contestants{
-        flex: 1;
     }
 }
