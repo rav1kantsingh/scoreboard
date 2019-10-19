@@ -12,9 +12,10 @@ export default class MainPage extends React.Component {
   }
 
   componentDidMount() {
-    var dataList = [];
     const dataRef = firebase.database().ref('JUDGES');
     dataRef.on('value', snapshot => {
+      var dataList = [];
+
       const dataObject = snapshot.val();
       // console.log("aman", dataObject);
         snapshot.forEach(function (childSnapshot) {

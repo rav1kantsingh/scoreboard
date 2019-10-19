@@ -11,9 +11,10 @@ export default class Leaderboard extends React.Component {
   }
 
   componentDidMount() {
-    var dataList = [];
     const dataRef = firebase.database().ref('total-score');
     dataRef.on('value', snapshot => {
+      var dataList = [];
+
       const dataObject = snapshot.val();
       console.log("aman", dataObject);
       for (var key in dataObject) {
