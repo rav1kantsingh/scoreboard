@@ -57,6 +57,7 @@ export default class MainPage extends React.Component {
     this.updateDB(score);
     this.updateBRANCH(score);
     this.updateEVENT(score);
+    this.updateLEADERBOARD(score);
     // this.updateJUDGE(score);
   }
 
@@ -89,7 +90,18 @@ export default class MainPage extends React.Component {
   
   }
 
+updateLEADERBOARD = (score) => {
+    var oldScore = 0;
+    firebase.database().ref('/'+this.state.event+'/'+"leaderboard/"+'/'+this.state.branch).on('value', function(snapshot) {
+      console.log("old",snapshot.val());
+      oldScore = (parseInt(snapshot.val()));
+  });
 
+    const updates={};
+    updates[this.state.branch] = score+oldScore;
+    console.log(this.state.read)
+    return firebase.database().ref('/'+this.state.event+'/'+"leaderboard/").update(updates);
+}
 //   updateJUDGE = (score) => {
 
    
