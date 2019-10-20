@@ -9,12 +9,24 @@ export default class MainPage extends React.Component {
     this.state = {
       data: [],
       event: "SOLO_DANCING",
-      question: []
+      question: [],
+      judgeCount:0
     }
 
   }
 
   componentDidMount() {
+    
+    
+    firebase.database().ref('/'+ "JUDGES_COUNT/" ).
+  on('value', snapshot => {
+    var judgeCount = 0;
+    console.log("old Value", snapshot.val());
+
+    // this.setState()({
+    //   judgeCount: (parseInt(snapshot.val()))
+    // })
+  });
     const dataRef = firebase.database().ref(this.state.event + '/JUDGES');
     dataRef.on('value', snapshot => {
 
@@ -52,7 +64,7 @@ export default class MainPage extends React.Component {
     return (
       <div className='main-page'>
         <div className='ranking'>
-          <Leaderboard event_name={this.state.event} />
+          <Leaderboard event_name={this.state.event} judgeCount={this.state.judgeCount} />
         </div>
         <div className='main'>
         <div className='event-box-main'>
