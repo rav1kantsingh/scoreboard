@@ -25,7 +25,7 @@ export default class ContestantItem extends React.Component {
     render() {
         const item = this.props.item
         return (
-            <div className={(this.props.isSelected ? ' selected ' : ' unselected ') + 'cListitem '}
+            <div className={(this.props.isSelected ? 'selected' : 'unselected') + ' cListitem'}
                 onClick={() => {this.handleClick(item)}}>
                 <div className={(item[this.state.judge_id] != 0) ? ' completed cMarker ' : ' uncompleted cMarker'} />
 
