@@ -1,166 +1,64 @@
 import React from "react";
+import InputField from './InputField';
 
 export default class ScoreCard extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            desc: 'Based on uniqueness, creativity and expressibility',
-            active: (props.locked && props.active) || false,
-            value1: props.value1 || "",
-            value2: props.value2 || "",
-            value3: props.value3 || "",
-            value4: props.value4 || "",
-            value5: props.value5 || "",
-            error: props.error || "",
-            label: props.label || "Score"
+            value1: 0,
+            value2: 0,
+            value3: 0,
+            value4: 0,
+            value5: 0,
         }
     }
 
-    changeValue(event) {
-        const value = event.target.value;
-        this.setState({ value, error: "" });
-    }
-
-    handleKeyPress(event) {
-        if (event.which === 13) {
-            this.setState({ value: this.props.predicted });
-        }
+    changeValues = (valueName, value) => {
+        console.log('changeValues',valueName,value)
+        this.setState({
+            valueName: value,
+        })
     }
 
     render() {
-        const { active, value1,value2,value3,value4,value5, error, label } = this.state;
-        const { predicted, locked } = this.props;
-        const fieldClassName = `field ${(locked ? active : active || value1) &&
-            "active"} ${locked && !active && "locked"}`;
-
         return (
             <div className='a-card'>
                 <div className='horizontal-holder'>
                     <h2 id='score-criteria'>PERFORMANCE</h2>
                     <div className='inputScore'>
-                        <div className={fieldClassName}>
-                            {active &&
-                                value1 &&
-                                predicted &&
-                                predicted.includes(value1) && <p className="predicted">{predicted}</p>}
-                            <input
-                                id={1}
-                                type="text"
-                                value1={value1}
-                                placeholder={label}
-                                onChange={this.changeValue.bind(this)}
-                                onKeyPress={this.handleKeyPress.bind(this)}
-                                onFocus={() => !locked && this.setState({ active: true })}
-                                onBlur={() => !locked && this.setState({ active: false })}
-                            />
-                            <label htmlFor={1} className={error && "error"}>
-                                {error || label}
-                            </label>
-                        </div>
+                        <InputField field='value1' changeValues={this.changeValues} />
                     </div>
                 </div>
                 <div className='horizontal-holder'>
-                <h2 id='score-criteria'>PERFECTION</h2>
-                <div className='inputScore'>
-                    <div className={fieldClassName}>
-                        {active &&
-                            value2 &&
-                            predicted &&
-                            predicted.includes(value2) && <p className="predicted">{predicted}</p>}
-                        <input
-                            id={2}
-                            type="number"
-                            value2={value2}
-                            placeholder={label}
-                            onChange={this.changeValue.bind(this)}
-                            onKeyPress={this.handleKeyPress.bind(this)}
-                            onFocus={() => !locked && this.setState({ active: true })}
-                            onBlur={() => !locked && this.setState({ active: false })}
-                        />
-                        <label htmlFor={1} className={error && "error"}>
-                            {error || label}
-                        </label>
+                    <h2 id='score-criteria'>PERFECTION</h2>
+                    <div className='inputScore'>
+                        <InputField field='value2' changeValues={this.changeValues} />
                     </div>
                 </div>
-            </div>
-            <div className='horizontal-holder'>
-            <h2 id='score-criteria'>UNIQUENESS</h2>
-            <div className='inputScore'>
-                <div className={fieldClassName}>
-                    {active &&
-                        value3 &&
-                        predicted &&
-                        predicted.includes(value3) && <p className="predicted">{predicted}</p>}
-                    <input
-                        id={3}
-                        type="text"
-                        value3={value3}
-                        placeholder={label}
-                        onChange={this.changeValue.bind(this)}
-                        onKeyPress={this.handleKeyPress.bind(this)}
-                        onFocus={() => !locked && this.setState({ active: true })}
-                        onBlur={() => !locked && this.setState({ active: false })}
-                    />
-                    <label htmlFor={1} className={error && "error"}>
-                        {error || label}
-                    </label>
+                <div className='horizontal-holder'>
+                    <h2 id='score-criteria'>UNIQUENESS</h2>
+                    <div className='inputScore'>
+                        <InputField field='value3' changeValues={this.changeValues} />
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div className='horizontal-holder'>
-        
-        <h2 id='score-criteria'>EXPRESSIONS</h2>
-        <div className='inputScore'>
-            <div className={fieldClassName}>
-                {active &&
-                    value4 &&
-                    predicted &&
-                    predicted.includes(value4) && <p className="predicted">{predicted}</p>}
-                <input
-                    id={4}
-                    type="text"
-                    value4={value4}
-                    placeholder={label}
-                    onChange={this.changeValue.bind(this)}
-                    onKeyPress={this.handleKeyPress.bind(this)}
-                    onFocus={() => !locked && this.setState({ active: true })}
-                    onBlur={() => !locked && this.setState({ active: false })}
-                />
-                <label htmlFor={1} className={error && "error"}>
-                    {error || label}
-                </label>
-            </div>
-        </div>
-    </div>
-    <div className='horizontal-holder'>
-    <h2 id='score-criteria'>PERFECTION</h2>
-    <div className='inputScore'>
-        <div className={fieldClassName}>
-            {active &&
-                value5 &&
-                predicted &&
-                predicted.includes(value5) && <p className="predicted">{predicted}</p>}
-            <input
-                id={5}
-                type="text"
-                value5={value5}
-                placeholder={label}
-                onChange={this.changeValue.bind(this)}
-                onKeyPress={this.handleKeyPress.bind(this)}
-                onFocus={() => !locked && this.setState({ active: true })}
-                onBlur={() => !locked && this.setState({ active: false })}
-            />
-            <label htmlFor={1} className={error && "error"}>
-                {error || label}
-            </label>
-        </div>
-    </div>
-</div>
- <button onClick={() => {console.log(this.state.value1)}}>SUBMIT</button>
+                <div className='horizontal-holder'>
 
-{
-                // <button onClick={() => this.props.handleSubmitClicked(parseInt(this.state.value))}>SUBMIT</button>
-          }          </div>
+                    <h2 id='score-criteria'>EXPRESSIONS</h2>
+                    <div className='inputScore'>
+                        <InputField field='value4' changeValues={this.changeValues} />
+                    </div>
+                </div>
+                <div className='horizontal-holder'>
+                    <h2 id='score-criteria'>PERFECTION</h2>
+                    <div className='inputScore'>
+                        <InputField field='value5' changeValues={this.changeValues} />
+                    </div>
+                </div>
+                <button onClick={() => { console.log('value of 1',this.state.value1) }}>SUBMIT</button>
+
+                {
+                    // <button onClick={() => this.props.handleSubmitClicked(parseInt(this.state.value))}>SUBMIT</button>
+                }          </div>
         )
     }
 }
