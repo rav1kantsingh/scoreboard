@@ -3,11 +3,6 @@ import React from "react";
 export default class LeaderboardListItem extends React.Component {
     constructor() {
         super();
-        this.state = {
-            rank: 1,
-            score: 10,
-            branch: 'CIVIL'
-        }
     }
     render() {
         return (
