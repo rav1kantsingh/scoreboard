@@ -12,22 +12,60 @@ export default class Leaderboard extends React.Component {
   }
 
   componentDidMount() {
-    const dataRef = firebase.database().ref(this.state.event+'/leaderboard');
-    dataRef.on('value', snapshot => {
-      var dataList = [];
 
-      const dataObject = snapshot.val();
-      console.log("aman", dataObject);
-      for (var key in dataObject) {
-        var singleeObj = {};
-        singleeObj['branch'] = key;
-        singleeObj['score'] = dataObject[key];
-        dataList.push(singleeObj);
-      }
-      this.setState({
-        data: dataList
-      })
-    })
+
+    firebase.database().ref('JUDGES_COUNT/').
+      on('value', snapshot1 => {
+         var judgeCount = parseInt(snapshot1.val());
+         console.log("JUDGECOUNT",judgeCount);
+       
+
+        console.log('EVENT', this.state.event)
+        const dataRef = firebase.database().ref(this.state.event + '/branches/');
+        dataRef.on('value', snapshot => {
+
+          var dataList = [];
+          console.log(snapshot)
+
+          const dataObject = snapshot.val();
+          console.log("aman", dataObject);
+          for (var branch in dataObject) {
+            var singleeObj = {};
+            console.log('BRANCH',branch)
+
+            singleeObj['branch'] = branch;
+            var i = judgeCount;
+            var total = 0;
+            // console.log('branch', branch)
+            for (var judge in dataObject[branch]) {
+               console.log(judge)
+              if(i<=0)
+                break;
+              i--;
+
+              console.log(branch, 'ran', i);
+              console.log(judge);
+              total+=parseInt(dataObject[branch][judge]);
+            }
+
+
+
+            singleeObj['score'] = total;
+            dataList.push(singleeObj);
+          }
+          this.setState({
+            data: dataList
+          })
+        })
+
+
+
+      });
+
+
+
+
+
   }
 
   render() {
@@ -35,7 +73,7 @@ export default class Leaderboard extends React.Component {
     return (
 
       <div className="listbox">
-      <div className='event-name'>{this.state.event}</div>
+        <div className='event-name'>{this.state.event}</div>
         <div id='title'>LEADERBOARD</div>
 
         <ul>
