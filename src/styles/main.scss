@@ -7,10 +7,13 @@
 @import './component/Leaderboard.scss';
 @import './component/contestant_item.scss';
 @import './component/text_input.scss';
+@import './component/final_leader_item.scss';
+@import './component/header_final_leader.scss';
 
 //pages
 @import './pages/index.scss';
 @import './pages/admin.scss';
+@import './pages/final.scss';
 
 //fonts
 @import './base/fonts.scss';
