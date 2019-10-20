@@ -1,7 +1,7 @@
 import React from 'react';
 import AdminScoreCard from '../component/AdminScoreCard';
 import Contestants from '../component/Contestants';
-import InputField from '../component/InputField';
+import PasswordField from '../component/PasswordField';
 import firebase from '../utils/firebase';
 
 export default class MainPage extends React.Component {
@@ -97,25 +97,90 @@ export default class MainPage extends React.Component {
 
   updateLEADERBOARD = (score) => {
     var oldScore = 0;
-    firebase.database().ref('/' + this.state.event + '/' + "leaderboard/" + '/' + this.state.branch).on('value', function (snapshot) {
+
+
+    firebase.database().ref('/' + this.state.event + '/' + "leaderboard/" + '/' + this.state.branch).
+    once('value').then(function(snapshot) {
       console.log("old", snapshot.val());
       oldScore = (parseInt(snapshot.val()));
+      // this.updateLEADER2(score,oldScore);
+      console.log('inside');
+
+      const updates = {};
+      updates[this.state.branch] = score + oldScore;
+      // console.log(this.state.read)
+      console.log('outside');
+      return firebase.database().ref('/' + this.state.event + '/' + "leaderboard/").update(updates);
+    }, function(error) {
+      // The Promise was rejected.
+      console.error(error);
     });
+    
+    // firebase.database().ref('/' + this.state.event + '/' + "leaderboard/" + '/' + this.state.branch).on('value', function (snapshot) {
+    //   console.log("old", snapshot.val());
+    //   oldScore = (parseInt(snapshot.val()));
+    //   // this.updateLEADER2(score,oldScore);
+    //   console.log('inside');
+    // },function(error){
+    //   if(error){
 
-    const updates = {};
-    updates[this.state.branch] = score + oldScore;
-    console.log(this.state.read)
-    return firebase.database().ref('/' + this.state.event + '/' + "leaderboard/").update(updates);
+    //   }
+    //   else{
+    //     const updates = {};
+    //     updates[this.state.branch] = score + oldScore;
+    //     // console.log(this.state.read)
+    //     console.log('outside');
+    //     return firebase.database().ref('/' + this.state.event + '/' + "leaderboard/").update(updates);
+    //   }
+    // });
+
+
+
+   
   }
-  //   updateJUDGE = (score) => {
+  updateLEADER2 = (score,oldScore) => {
+    
+   
+  }
+ 
+  changeValues = (value) => {
+    console.log('pass',value)
+        this.setState({
+            value: value,
+        })
+    }
 
-
-  //     //update branch score
-  //     const updates={};
-  //     updates["/"+this.state.branch] = score;
-  //     console.log(this.state.read)
-  //     return firebase.database().ref('/'+this.state.event).update(updates);
-
+    checkAuth = (password) =>{
+      console.log('password',password);
+        if(password=='j1@ecc'){
+          this.state.isAuthenticated = true;
+          this.state.judge_id = 'j1';
+        }
+        else  if(password=='j2@ecc'){
+          this.state.isAuthenticated = true;
+          this.state.judge_id = 'j2';
+        }
+        else  if(password=='j3@ecc'){
+          this.state.isAuthenticated = true;
+          this.state.judge_id = 'j3';
+        }
+        else  if(password=='j4@ecc'){
+          this.state.isAuthenticated = true;
+          this.state.judge_id = 'j4';
+        }
+        else  if(password=='j5@ecc'){
+          this.state.isAuthenticated = true;
+          this.state.judge_id = 'j5';
+        }
+        else  if(password=='j6@ecc'){
+          this.state.isAuthenticated = true;
+          this.state.judge_id = 'j6';
+        }
+    }
+    _handleKeyDown = (e) => {
+        this.checkAuth(this.state.value);
+      
+    }
   render() {
     return (
       <div className='admin-page'>
@@ -131,8 +196,12 @@ export default class MainPage extends React.Component {
       </div> :
         <div className='login'>
         <div id="login-text">Enter your Judge ID provided</div>
-        <div id="password">   <InputField label="Password"/>   </div>
-        
+        <div id="password">  <PasswordField  changeValues={this.changeValues} onKeyPress={event => {
+          if (event.key === 'Enter') {
+            this.checkAuth(this.state.value);
+          }
+        }} />  </div>
+        <div id="pwd_submit"> <button onClick={() => this.checkAuth(this.state.value)}>SUBMIT</button></div>
         </div>
     }
           
