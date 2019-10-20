@@ -1,6 +1,7 @@
 import React from 'react';
 import AdminScoreCard from '../component/AdminScoreCard';
 import Contestants from '../component/Contestants';
+import InputField from '../component/InputField';
 import firebase from '../utils/firebase';
 
 export default class MainPage extends React.Component {
@@ -14,7 +15,8 @@ export default class MainPage extends React.Component {
       index: '',
       read: 0,
       judge_id: 'j1',
-      isSelected:false
+      isSelected:false,
+      isAuthenticated:false
     }
   }
 
@@ -121,12 +123,19 @@ export default class MainPage extends React.Component {
           <Contestants data={this.state.data} handleClick={this.handleClick} />
         </div>
         <div className='main'>
-          <div className={'card-container'}>
-            <h2 className='details'>{this.state.name}</h2>
-            <h3 className='details'>{this.state.branch}</h3>
-            <h3 className='details'>{this.state.event}</h3>
-            {this.state.isSelected ? <AdminScoreCard data={this.state.data} handleSubmitClicked={this.handleSubmitClicked} /> : null}
-          </div>
+        {this.state.isAuthenticated ? <div className={'card-container'}>
+        <h2 className='details'>{this.state.name}</h2>
+        <h3 className='details'>{this.state.branch}</h3>
+        <h3 className='details'>{this.state.event}</h3>
+        {this.state.isSelected ? <AdminScoreCard data={this.state.data} handleSubmitClicked={this.handleSubmitClicked} /> : null}
+      </div> :
+        <div className='login'>
+        <div id="login-text">Enter your Judge ID provided</div>
+        <div id="password">   <InputField label="Password"/>   </div>
+        
+        </div>
+    }
+          
         </div>
       </div>
     )

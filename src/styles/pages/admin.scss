@@ -18,5 +18,23 @@
                 color: wheat;
             }
         }
+
+        .login{
+            align-self: center;
+            margin: auto 0;
+            vertical-align: middle;
+            #login-text{
+                text-align: center;
+                font-family: 'Montserrat', sans-serif;
+                font-size: 1.5rem;
+                 color: rgb(238, 238, 238);
+            }
+             #password{
+                 text-align: center;
+                font-family: 'Montserrat', sans-serif;
+                font-size: 1.5rem;
+                 color: rgb(0, 156, 218);
+             }
+        }
     }
 }
