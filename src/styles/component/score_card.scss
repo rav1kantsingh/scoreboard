@@ -53,21 +53,49 @@
 //     color:rgb(184, 184, 184); 
 // }
 
-.inputScore{
-    width: 6rem;
-    border: 0.05rem rgb(0, 156, 218) solid;
-    border-radius: 0.2rem;
-    margin-top: 0.5rem;
+
+.a-card{
+    padding: 1rem;
     display: flex;
+    width: fit-content;
     align-items: center;
     justify-content: center;
-
-    span{
-        align-content: center;
-        justify-content: center;
-        font-family: 'Raleway', sans-serif;
+    flex-direction: column;
+    margin: 0 0.4rem;
+    background-color: #222222;
+    border: 0.05rem #858585 solid;
+.horizontal-holder{
+    display: flex;
+    flex-direction: row;
+    vertical-align: middle;
+    justify-self: right;
+    #score-criteria{
+        font-family: 'Montserrat', sans-serif;
         font-weight: 200;
-        font-size: 4rem;
+        font-size: 1.3rem;
         color: white;
     }
+    .inputScore{
+        width: 6rem;
+        border: 0.05rem rgb(0, 156, 218) solid;
+        border-radius: 0.2rem;
+        margin-top: 0.5rem;
+        display: flex;
+        align-items: flex-end;
+        justify-content: right;
+        vertical-align: middle;
+        margin-left: 4rem;
+    
+        span{
+    
+            vertical-align: middle;
+            align-content: flex-end;
+            justify-content: right;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 200;
+            font-size: 4rem;
+            color: white;
+        }
+    }
+}
 }

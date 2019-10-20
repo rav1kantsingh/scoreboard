@@ -133,7 +133,8 @@ updateLEADERBOARD = (score) => {
             <h3 className='details'>{this.state.branch}</h3>
             <h3 className='details'>{this.state.event}</h3>
             <AdminScoreCard data={this.state.data} handleSubmitClicked={this.handleSubmitClicked} />
-          </div>
+         
+            </div>
         </div>
       </div>
     )
