@@ -75,7 +75,7 @@ export default class MainPage extends React.Component {
     const updates = {};
     updates[this.state.judge_id] = score;
     console.log(this.state.read)
-    return firebase.database().ref('/' + this.state.event + '/' + this.state.branch + '/JUDGES').update(updates);
+    return firebase.database().ref('/' + this.state.event + '/branches/' + this.state.branch ).update(updates);
 
 
   }
@@ -211,6 +211,7 @@ export default class MainPage extends React.Component {
 
     </div></div>
          :
+         <div className='password-page'>
           <div className='login'>
             <div id="login-text">Enter your Judge ID provided</div>
             <div id="password">  <PasswordField changeValues={this.changeValues} onKeyPress={event => {
@@ -219,6 +220,7 @@ export default class MainPage extends React.Component {
               }
             }} />  </div>
             <div id="pwd_submit"> <button onClick={() => this.checkAuth(this.state.value)}>SUBMIT</button></div>
+          </div>
           </div>
         }
       </div>
