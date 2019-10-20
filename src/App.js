@@ -10,6 +10,8 @@ import HindiDebate from './pages/HindiDebate';
 import EnglishDebate from './pages/EnglishDebut';
 import Admin from './pages/Admin';
 import ContestantItem from './component/ContestantItem';
+import FinalItemView from './component/Final_leaderboard_item';
+import FinalLeaderboard from './pages/Final';
 
 function App() {
   return (
@@ -28,6 +30,9 @@ function App() {
 
           <Route path='/admin' component={Admin}/>
           <Route path='/contestant' component={ContestantItem}/>
+          <Route path='/final' component={FinalLeaderboard}/>
+
+          <Route path='/finalitem' component={FinalItemView}/>
         </Switch>
       </Router>
     </div>

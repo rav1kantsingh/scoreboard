@@ -1,0 +1,76 @@
+.hListitem{
+    padding-left: 2rem;
+    width: 90vw;
+    margin: 0 auto;
+    height: 6vw;
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(41, 41, 41);
+    align-items: center;
+    border-bottom: 2px solid rgb(116, 116, 116);
+
+    #hRank{
+        text-align: center;
+
+        width: 10%;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 2rem;
+        color: rgb(0, 156, 218);
+    }
+    #hBranch{
+        margin-left: 3.5rem;
+        width: 25%;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 2rem;
+        color: rgb(241, 241, 241);
+    }
+    #hGold{
+        text-align: center;
+
+        width: 20%;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 2rem;
+        color: yellow;
+    }
+    #hSilver{
+        text-align: center;
+
+        width: 20%;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 2rem;
+        color: rgb(187, 187, 187);
+    }
+    #hBronze{
+        text-align: center;
+
+        width: 20%;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 2rem;
+        color: rgb(255, 123, 0);
+    }
+    #hTotal{
+        text-align: center;
+
+        width: 20%;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 2rem;
+        color: rgb(218, 218, 218);
+    }
+    .hVertical{
+        display: flex;
+        flex-direction: column;
+    }
+    .hBranch{
+        font-family: 'Raleway', sans-serif;
+        font-weight: 800;
+        font-size: 2rem;
+        flex: 1;
+        margin-left: 0;
+        text-align: right;
+        margin-right: 0.5rem;
+       bottom: 0;
+        color: rgba(0, 0, 0, 0.315);
+    }
+      
+   
+}

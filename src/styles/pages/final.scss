@@ -1,0 +1,16 @@
+.final_listbox{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(0, 0, 0);
+    align-items: center;
+
+    #final_title{
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 200;
+        font-size: 2.4rem;
+        color: white;
+    }
+
+}
