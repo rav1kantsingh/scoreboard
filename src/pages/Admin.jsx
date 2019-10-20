@@ -17,7 +17,8 @@ export default class MainPage extends React.Component {
       read: 0,
       judge_id: '',
       isSelected: false,
-      isAuthenticated: false
+      isAuthenticated: false,
+      hideGradeCard: false
     }
   }
 
@@ -135,6 +136,12 @@ export default class MainPage extends React.Component {
 
   }
 
+  hideGradeCard = (e) => {
+    this.setState({
+      hideGradeCard: e
+    })
+  }
+
   changeValues = (value) => {
     console.log('pass', value)
     this.setState({
@@ -198,13 +205,13 @@ export default class MainPage extends React.Component {
         {this.state.isAuthenticated ? <div className={'card-container'}>
         <div className='admin-page'>
         <div className='ranking'>
-        <Contestants judge_id={this.state.judge_id} data={this.state.data} handleClick={this.handleClick} />
+        <Contestants judge_id={this.state.judge_id} data={this.state.data} handleClick={this.handleClick} hideGradeCard={this.hideGradeCard}/>
       </div>
       <div className='main'>
         <h2 className='details'>{this.state.name}</h2>
         <h3 className='details'>{this.state.branch}</h3>
         <h3 className='details'>{this.state.event}</h3>
-        {this.state.isSelected ? <AdminScoreCard data={this.state.data} handleSubmitClicked={this.handleSubmitClicked} /> : null}
+        {this.state.isSelected && !this.state.hideGradeCard ? <AdminScoreCard data={this.state.data} handleSubmitClicked={this.handleSubmitClicked} /> : null}
       </div>
 
 

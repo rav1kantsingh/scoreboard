@@ -21,7 +21,7 @@ export default class Contestants extends React.Component {
       <div id='title' >CONTESTANTS</div>
           {this.props.data.map((item,index) => {
             console.log('SCORREEEEEEE');
-            return <ContestantItem  judge_id = {this.props.judge_id} index = {index} handleClick={this.props.handleClick} isSelected={this.state.selectedIndex===index} changeSelectedIndex={this.changeSelectedIndex} item={item} />
+            return <ContestantItem  judge_id = {this.props.judge_id} index = {index} handleClick={this.props.handleClick} isSelected={this.state.selectedIndex===index} hideGradeCard = {this.props.hideGradeCard} changeSelectedIndex={this.changeSelectedIndex} item={item} />
           })}
       </div>
     )
