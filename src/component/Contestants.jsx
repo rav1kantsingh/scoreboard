@@ -6,11 +6,9 @@ export default class Contestants extends React.Component {
     return (
       <div className="listbox">
       <div id='title' >CONTESTANTS</div>
-        <ul>
           {this.props.data.map((item,index) => {
             return <div onClick={() => this.props.handleClick(index)} key={index}><ContestantItem  name={item.name} branch={item.branch} event={item.event}  /></div>
           })}
-        </ul>
       </div>
     )
   }
