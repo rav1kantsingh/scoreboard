@@ -3,6 +3,7 @@ import AdminScoreCard from '../component/AdminScoreCard';
 import Contestants from '../component/Contestants';
 import PasswordField from '../component/PasswordField';
 import firebase from '../utils/firebase';
+import { resolve } from 'url';
 
 export default class MainPage extends React.Component {
   constructor() {
@@ -33,16 +34,10 @@ export default class MainPage extends React.Component {
       this.setState({
         data: dataList
       })
+
+      console.log('data',this.state.data)
     })
 
-    //reading current total score of branch.
-    const totalScore = firebase.database().ref('/total-score');
-    totalScore.on('value', snapshot => {
-      const dataObject = snapshot.val();
-      this.setState({
-        read: dataObject
-      })
-    })
 
   }
   handleClick = (index) => {
@@ -98,22 +93,19 @@ export default class MainPage extends React.Component {
   updateLEADERBOARD = (score) => {
     var oldScore = 0;
 
-
+    //console.log('route', '/' + this.state.event + '/' + "leaderboard/");
     firebase.database().ref('/' + this.state.event + '/' + "leaderboard/" + '/' + this.state.branch).
-    once('value').then(function(snapshot) {
-      console.log("old", snapshot.val());
+    once('value', snapshot => {
+      
+      console.log("old Value", snapshot.val());
       oldScore = (parseInt(snapshot.val()));
       // this.updateLEADER2(score,oldScore);
-      console.log('inside');
-
       const updates = {};
       updates[this.state.branch] = score + oldScore;
-      // console.log(this.state.read)
-      console.log('outside');
-      return firebase.database().ref('/' + this.state.event + '/' + "leaderboard/").update(updates);
-    }, function(error) {
-      // The Promise was rejected.
-      console.error(error);
+      console.log('route', '/' + this.state.event + '/' + "leaderboard/",updates);
+      firebase.database().ref('/' + this.state.event + '/' + "leaderboard/").update(updates, () => {
+        console.log("Update Successfull");
+      });
     });
     
     // firebase.database().ref('/' + this.state.event + '/' + "leaderboard/" + '/' + this.state.branch).on('value', function (snapshot) {
@@ -185,7 +177,7 @@ export default class MainPage extends React.Component {
     return (
       <div className='admin-page'>
         <div className='ranking'>
-          <Contestants data={this.state.data} handleClick={this.handleClick} />
+          <Contestants judge_id = {this.state.judge_id} data={this.state.data} handleClick={this.handleClick} />
         </div>
         <div className='main'>
         {this.state.isAuthenticated ? <div className={'card-container'}>
