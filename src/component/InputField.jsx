@@ -15,7 +15,7 @@ export default class Input extends React.Component {
   changeValue(event) {
     const value = event.target.value;
     this.setState({ value, error: "" });
-    this.props.changeValues(this.props.field,this.state.value)
+    this.props.changeValues(this.props.field,event.target.value)
   }
 
   handleKeyPress(event) {

@@ -14,10 +14,27 @@ export default class ScoreCard extends React.Component {
     }
 
     changeValues = (valueName, value) => {
-        console.log('changeValues',valueName,value)
-        this.setState({
-            valueName: value,
-        })
+        if (valueName === 'value1') {
+            this.setState({
+                value1: value,
+            })
+        } if (valueName === 'value2') {
+            this.setState({
+                value2: value,
+            })
+        } if (valueName === 'value3') {
+            this.setState({
+                value3: value,
+            })
+        } if (valueName === 'value4') {
+            this.setState({
+                value4: value,
+            })
+        } if (valueName === 'value5') {
+            this.setState({
+                value5: value,
+            })
+        }
     }
 
     render() {
@@ -54,11 +71,8 @@ export default class ScoreCard extends React.Component {
                         <InputField field='value5' changeValues={this.changeValues} />
                     </div>
                 </div>
-                <button onClick={() => { console.log('value of 1',this.state.value1) }}>SUBMIT</button>
-
-                {
-                    // <button onClick={() => this.props.handleSubmitClicked(parseInt(this.state.value))}>SUBMIT</button>
-                }          </div>
+                <button onClick={() => this.props.handleSubmitClicked(parseInt(this.state.value1) + parseInt(this.state.value2) + parseInt(this.state.value3) + parseInt(this.state.value4) + parseInt(this.state.value5))}>SUBMIT</button>
+            </div>
         )
     }
 }

@@ -1,9 +1,6 @@
 import React from "react";
 
 export default class LeaderboardListItem extends React.Component {
-    constructor() {
-        super();
-    }
     render() {
         return (
             <div className='listItem'>
