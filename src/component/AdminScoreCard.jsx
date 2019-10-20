@@ -71,7 +71,7 @@ export default class ScoreCard extends React.Component {
                         <InputField field='value5' changeValues={this.changeValues} />
                     </div>
                 </div>
-                <button onClick={() => this.props.handleSubmitClicked(parseInt(this.state.value1) + parseInt(this.state.value2) + parseInt(this.state.value3) + parseInt(this.state.value4) + parseInt(this.state.value5))}>SUBMIT</button>
+                <button className='button' onClick={() => this.props.handleSubmitClicked(parseInt(this.state.value1) + parseInt(this.state.value2) + parseInt(this.state.value3) + parseInt(this.state.value4) + parseInt(this.state.value5))}>SUBMIT</button>
             </div>
         )
     }
