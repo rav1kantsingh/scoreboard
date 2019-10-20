@@ -14,7 +14,16 @@
         height: inherit;
         border-top-left-radius: 1vw;
         border-bottom-left-radius: 1vw;
+    }
+
+    .red{
         background-color: #cf1f00;
+    }
+    .yellow{
+        background-color: #f0de3c;
+    }
+    .blue{
+        background-color: #2eb3ff;
     }
     .cVertical{
         display: flex;
