@@ -16,16 +16,16 @@
         border-bottom-left-radius: 1vw;
     }
 
-    .red{
-        background-color: red;
+    .selected{
+        background-color: rgb(0, 117, 226);
     }
 
-    .yellow{
-        background-color: yellow;
+    .uncompleted{
+        background-color: rgb(195, 0, 0);
     }
 
-    .blue{
-        background-color: blue;
+    .completed{
+        background-color: rgb(0, 245, 53);
     }
     .cVertical{
         display: flex;

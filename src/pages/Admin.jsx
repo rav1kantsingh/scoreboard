@@ -15,9 +15,9 @@ export default class MainPage extends React.Component {
       data: [],
       index: '',
       read: 0,
-      judge_id: 'j1',
-      isSelected:false,
-      isAuthenticated:false
+      judge_id: '',
+      isSelected: false,
+      isAuthenticated: false
     }
   }
 
@@ -35,7 +35,7 @@ export default class MainPage extends React.Component {
         data: dataList
       })
 
-      console.log('data',this.state.data)
+      console.log('data', this.state.data)
     })
 
 
@@ -43,7 +43,7 @@ export default class MainPage extends React.Component {
   handleClick = (index) => {
     console.log('click' + index)
     this.setState({
-      isSelected:true
+      isSelected: true
     })
     this.setState({
       name: this.state.data[index].name,
@@ -95,19 +95,19 @@ export default class MainPage extends React.Component {
 
     //console.log('route', '/' + this.state.event + '/' + "leaderboard/");
     firebase.database().ref('/' + this.state.event + '/' + "leaderboard/" + '/' + this.state.branch).
-    once('value', snapshot => {
-      
-      console.log("old Value", snapshot.val());
-      oldScore = (parseInt(snapshot.val()));
-      // this.updateLEADER2(score,oldScore);
-      const updates = {};
-      updates[this.state.branch] = score + oldScore;
-      console.log('route', '/' + this.state.event + '/' + "leaderboard/",updates);
-      firebase.database().ref('/' + this.state.event + '/' + "leaderboard/").update(updates, () => {
-        console.log("Update Successfull");
+      once('value', snapshot => {
+
+        console.log("old Value", snapshot.val());
+        oldScore = (parseInt(snapshot.val()));
+        // this.updateLEADER2(score,oldScore);
+        const updates = {};
+        updates[this.state.branch] = score + oldScore;
+        console.log('route', '/' + this.state.event + '/' + "leaderboard/", updates);
+        firebase.database().ref('/' + this.state.event + '/' + "leaderboard/").update(updates, () => {
+          console.log("Update Successfull");
+        });
       });
-    });
-    
+
     // firebase.database().ref('/' + this.state.event + '/' + "leaderboard/" + '/' + this.state.branch).on('value', function (snapshot) {
     //   console.log("old", snapshot.val());
     //   oldScore = (parseInt(snapshot.val()));
@@ -128,76 +128,99 @@ export default class MainPage extends React.Component {
 
 
 
-   
-  }
-  updateLEADER2 = (score,oldScore) => {
-    
-   
-  }
- 
-  changeValues = (value) => {
-    console.log('pass',value)
-        this.setState({
-            value: value,
-        })
-    }
 
-    checkAuth = (password) =>{
-      console.log('password',password);
-        if(password=='j1@ecc'){
-          this.state.isAuthenticated = true;
-          this.state.judge_id = 'j1';
-        }
-        else  if(password=='j2@ecc'){
-          this.state.isAuthenticated = true;
-          this.state.judge_id = 'j2';
-        }
-        else  if(password=='j3@ecc'){
-          this.state.isAuthenticated = true;
-          this.state.judge_id = 'j3';
-        }
-        else  if(password=='j4@ecc'){
-          this.state.isAuthenticated = true;
-          this.state.judge_id = 'j4';
-        }
-        else  if(password=='j5@ecc'){
-          this.state.isAuthenticated = true;
-          this.state.judge_id = 'j5';
-        }
-        else  if(password=='j6@ecc'){
-          this.state.isAuthenticated = true;
-          this.state.judge_id = 'j6';
-        }
+  }
+  updateLEADER2 = (score, oldScore) => {
+
+
+  }
+
+  changeValues = (value) => {
+    console.log('pass', value)
+    this.setState({
+      value: value,
+    })
+  }
+
+  checkAuth = (password) => {
+    console.log('password', password);
+    if (password == 'j1@ecc') {
+      console.log('PASSED')
+
+      this.setState({
+        judge_id: 'j1',
+        isAuthenticated: true
+
+      });
+
     }
-    _handleKeyDown = (e) => {
-        this.checkAuth(this.state.value);
-      
+    else if (password === 'j2@ecc') {
+      console.log('PASSED2s')
+
+      this.setState({
+        isAuthenticated: true,
+        judge_id: 'j2'
+      });
     }
+    else if (password === 'j3@ecc') {
+      this.setState({
+        isAuthenticated: true,
+        judge_id: 'j3'
+      });
+    }
+    else if (password === 'j4@ecc') {
+      this.setState({
+        isAuthenticated: true,
+        judge_id: 'j4'
+      });
+    }
+    else if (password === 'j5@ecc') {
+      this.setState({
+        isAuthenticated: true,
+        judge_id: 'j5'
+      });
+    }
+    else if (password === 'j6@ecc') {
+      this.setState({
+        isAuthenticated: true,
+        judge_id: 'j6'
+      });
+    }
+    console.log('pwd corr', this.state.judge_id)
+  }
+  _handleKeyDown = (e) => {
+    this.checkAuth(this.state.value);
+
+  }
   render() {
     return (
-      <div className='admin-page'>
-        <div className='ranking'>
-          <Contestants judge_id = {this.state.judge_id} data={this.state.data} handleClick={this.handleClick} />
-        </div>
-        <div className='main'>
+      <div className='admin-page2'>
         {this.state.isAuthenticated ? <div className={'card-container'}>
+        <div className='admin-page'>
+        <div className='ranking'>
+        <Contestants judge_id={this.state.judge_id} data={this.state.data} handleClick={this.handleClick} />
+      </div>
+      <div className='main'>
         <h2 className='details'>{this.state.name}</h2>
         <h3 className='details'>{this.state.branch}</h3>
         <h3 className='details'>{this.state.event}</h3>
         {this.state.isSelected ? <AdminScoreCard data={this.state.data} handleSubmitClicked={this.handleSubmitClicked} /> : null}
-      </div> :
-        <div className='login'>
-        <div id="login-text">Enter your Judge ID provided</div>
-        <div id="password">  <PasswordField  changeValues={this.changeValues} onKeyPress={event => {
-          if (event.key === 'Enter') {
-            this.checkAuth(this.state.value);
-          }
-        }} />  </div>
-        <div id="pwd_submit"> <button onClick={() => this.checkAuth(this.state.value)}>SUBMIT</button></div>
-        </div>
-    }
-          
-        </div>
+      </div>
+
+
+
+    </div></div>
+         :
+          <div className='login'>
+            <div id="login-text">Enter your Judge ID provided</div>
+            <div id="password">  <PasswordField changeValues={this.changeValues} onKeyPress={event => {
+              if (event.key === 'Enter') {
+                this.checkAuth(this.state.value);
+              }
+            }} />  </div>
+            <div id="pwd_submit"> <button onClick={() => this.checkAuth(this.state.value)}>SUBMIT</button></div>
+          </div>
+        }
       </div>
     )
   }

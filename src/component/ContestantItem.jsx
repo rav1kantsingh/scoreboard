@@ -17,7 +17,7 @@ export default class ContestantItem extends React.Component {
         const item = this.props.item
         return (
             <div className='cListitem' onClick={() => {this.props.changeSelectedIndex(this.props.index); this.props.handleClick(this.props.index); }}>
-                <div className={(item[this.state.judge_id]!=0) ? ' blue cMarker ' : ((this.props.isSelected ? ' red ' : ' yellow ') + ' cMarker')}/>
+                <div className={(item[this.state.judge_id]!=0) ? ' completed cMarker ' : ((this.props.isSelected ? ' selected ' : ' uncompleted ') + ' cMarker')}/>
                 <div className='cVertical'>
                 {console.log('judge id',this.state.judge_id)}
                 {console.log('judge val',item[this.state.judge_id])}
