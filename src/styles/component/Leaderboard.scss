@@ -3,13 +3,21 @@
     width: 30vw;
     display: flex;
     align-content: center;
-    padding-top: 2rem;
     overflow: auto;
     flex-direction: column;
     border: 0.05rem black solid;
     background-color: #202020;
-
+    .event-name{
+        flex: 1;
+        width: 100%;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 800;
+        font-size: 1.5rem;
+        background-color: rgb(255, 255, 255);
+        text-align: center;
+    }
     #title{
+        padding-top: 1.5rem;
         margin: 1 0rem;
         width: 100%;
         text-align: center;

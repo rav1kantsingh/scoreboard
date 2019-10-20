@@ -8,7 +8,7 @@ export default class MainPage extends React.Component {
     super();
     this.state = {
       data: [],
-      event: "GROUP_DANCING",
+      event: "SOLO_DANCING",
       question: []
     }
 
@@ -55,9 +55,7 @@ export default class MainPage extends React.Component {
           <Leaderboard event_name={this.state.event} />
         </div>
         <div className='main'>
-        <div className='event-box-main'>
-        <div id='event-text'>{this.state.event}</div>
-        </div>
+        <div className='event-name-main'></div>
           <div className='web-header'>
             <div className='web-title1'>ECCENTRICA</div>
             <div className='web-title2'>3.0</div>

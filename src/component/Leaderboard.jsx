@@ -35,6 +35,7 @@ export default class Leaderboard extends React.Component {
     return (
 
       <div className="listbox">
+      <div className='event-name'>{this.state.event}</div>
         <div id='title'>LEADERBOARD</div>
 
         <ul>

@@ -8,36 +8,41 @@ export default class MainPage extends React.Component {
     super();
     this.state = {
       data: [],
-      event: "SOLO_SINGING"
+      event: "SOLO_SINGING",
+      question: []
     }
+
   }
 
   componentDidMount() {
-    const dataRef = firebase.database().ref(this.state.event+'/JUDGES');
+    const dataRef = firebase.database().ref(this.state.event + '/JUDGES');
     dataRef.on('value', snapshot => {
 
       var dataList = [];
+      var questionList = [];
 
       const dataObject = snapshot.val();
       var i = 3;
       for (var key in dataObject) {
         var singleeObj = {};
-        if(i<=0){
+        if (i <= 0) {
           singleeObj['judge_id'] = key;
           singleeObj['score'] = '?';
           console.log('?');
+          questionList.push(singleeObj);
         }
-        else{
+        else {
           singleeObj['judge_id'] = key;
           singleeObj['score'] = dataObject[key];
           console.log(dataObject[key]);
+          dataList.push(singleeObj);
         }
         i--;
-        dataList.push(singleeObj);
-       
+
       }
       this.setState({
-        data: dataList
+        data: dataList,
+        question: questionList
       })
     })
 
@@ -47,20 +52,31 @@ export default class MainPage extends React.Component {
     return (
       <div className='main-page'>
         <div className='ranking'>
-          <Leaderboard event_name={this.state.event}/>
+          <Leaderboard event_name={this.state.event} />
         </div>
         <div className='main'>
+        <div className='event-box-main'>
+        <div id='event-text'>{this.state.event}</div>
+        </div>
           <div className='web-header'>
             <div className='web-title1'>ECCENTRICA</div>
             <div className='web-title2'>3.0</div>
           </div>
           <div id='scores'>
-            <div id='card-title'>Judges Scores</div>
-            <div className='card-container'>
-              {this.state.data.map((item, index) => {
-                return <ScoreCard desc={item.judge_content} key={index + 1} judge={item.judge_name} score={item.score} />
-              })}
-            </div></div>
+            <div id='card-title'>JUDGE SCORES</div>
+            <div className='card-vertical'>
+              <div id='card-container1'>
+                {this.state.data.map((item, index) => {
+                  return <ScoreCard key={index + 1} judge={item.judge_id} score={item.score} />
+                })}
+              </div>
+              <div id='card-container2'>
+                {this.state.question.map((item, index) => {
+                  return <ScoreCard  key={index + 1} judge={item.judge_id} score={item.score} />
+                })}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     )
