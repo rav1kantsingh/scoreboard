@@ -14,8 +14,7 @@ export default class MainPage extends React.Component {
       index: '',
       read: 0,
       judge_id: 'j1',
-      isSelected: false,
-      isVisible: false,
+      isSelected:false
     }
   }
 
@@ -45,10 +44,10 @@ export default class MainPage extends React.Component {
 
   }
   handleClick = (index) => {
+    console.log('click' + index)
     this.setState({
-      isSelected: !this.state.isSelected,
+      isSelected:true
     })
-
     this.setState({
       name: this.state.data[index].name,
       branch: this.state.data[index].branch,
@@ -119,15 +118,15 @@ export default class MainPage extends React.Component {
     return (
       <div className='admin-page'>
         <div className='ranking'>
-          <Contestants data = {this.state.data} color={this.state.color}  handleClick={this.handleClick} />
+          <Contestants data={this.state.data} handleClick={this.handleClick} />
         </div>
         <div className='main'>
-          {this.state.isVisible ?  <div className={'card-container'}>
+          <div className={'card-container'}>
             <h2 className='details'>{this.state.name}</h2>
             <h3 className='details'>{this.state.branch}</h3>
             <h3 className='details'>{this.state.event}</h3>
-            <AdminScoreCard data={this.state.data} handleSubmitClicked={this.handleSubmitClicked} />
-          </div> : null}       
+            {this.state.isSelected ? <AdminScoreCard data={this.state.data} handleSubmitClicked={this.handleSubmitClicked} /> : null}
+          </div>
         </div>
       </div>
     )
