@@ -21,7 +21,9 @@ export default class Final extends React.Component {
       console.log("aman", dataObject);
       for (var key in dataObject) {
         var singleeObj = {};
-        this.state.total = 0;
+        this.setState({
+          total:0
+        })
         // singleeObj['branch'] = key;
         // singleeObj['score'] = dataObject[key];
         // dataList.push(singleeObj);
