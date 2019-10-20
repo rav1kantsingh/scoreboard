@@ -4,23 +4,16 @@
     display: flex;
     flex-direction: row;
     justify-items: right;
-    background-color: rgb(240, 240, 240);
     border-radius: 1vw;
     margin-bottom: 0.4rem;
     align-items: center;
     box-shadow: 4px 4px 8px rgb(58, 58, 58);
+
     .cMarker{
         width: 10%;
         height: inherit;
         border-top-left-radius: 1vw;
         border-bottom-left-radius: 1vw;
-    }
-
-    .selected{
-        background-color: rgb(161, 70, 70);
-    }
-    .unselected{
-        background-color: rgb(255, 255, 255);
     }
 
     .uncompleted{
@@ -60,7 +53,11 @@
         margin-right: 0.5rem;
        bottom: 0;
         color: rgba(0, 0, 0, 0.315);
-    }
-      
-   
+    } 
+}
+.selected{
+    background-color: rgb(209, 207, 207);
+}
+.unselected{
+    background-color: rgb(255, 255, 255);
 }
