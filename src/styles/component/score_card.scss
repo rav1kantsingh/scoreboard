@@ -1,6 +1,5 @@
     .card{
-        width:19vw;
-        height: 19rem;
+        
         display: flex;
         align-items: center;
         justify-content: center;
@@ -11,10 +10,10 @@
 
         .circle{
             border: 0.3rem #00B7FE solid;
-            width: 6rem;
-            height: 6rem;
-            margin-top: 0.5rem;
+            width: 7rem;
+            height: 7rem;
             border-radius: 5rem;
+            margin: 2rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -22,37 +21,37 @@
             span{
                 font-family: 'Montserrat', sans-serif;
                 font-weight: 200;
-                font-size: 4rem;
+                font-size: 3.7rem;
                 color: white;
             }
         }
 
-        h2{
-            font-family: 'Raleway', sans-serif;
-            text-align: center;
-            margin-top: 1rem;
-            color: antiquewhite;
-            font-size: 1.25rem;
-        }
+        // h2{
+        //     font-family: 'Raleway', sans-serif;
+        //     text-align: center;
+        //     margin-top: 1rem;
+        //     color: antiquewhite;
+        //     font-size: 1.25rem;
+        // }
     }
 
-#desc{
-    font-family: 'Nunito',sans-serif;
-    font-size: 1.2rem;
-    text-align: center;
-    margin-top: 0%;
-    padding-right: 0.1rem;
-    padding-left: 0.1rem;
-    color: rgb(187, 187, 187);
-}
+// #desc{
+//     font-family: 'Nunito',sans-serif;
+//     font-size: 1.2rem;
+//     text-align: center;
+//     margin-top: 0%;
+//     padding-right: 0.1rem;
+//     padding-left: 0.1rem;
+//     color: rgb(187, 187, 187);
+// }
 
-#crit{
-    font-family: 'Raleway', sans-serif;
-    font-weight: 800;
-    font-size: 1.2rem;
-    text-align: center;
-    color:rgb(184, 184, 184); 
-}
+// #crit{
+//     font-family: 'Raleway', sans-serif;
+//     font-weight: 800;
+//     font-size: 1.2rem;
+//     text-align: center;
+//     color:rgb(184, 184, 184); 
+// }
 
 .inputScore{
     width: 6rem;

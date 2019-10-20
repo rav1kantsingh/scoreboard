@@ -5,13 +5,28 @@
     .main{
         flex: 3;
         width: 60vw;
-        height: 100vh;
+        height: 80vh;
         background-image: url("../images/trans.png");
         background-position: 'center';
         background-size: 'cover';
         background-size: 100%;
         background-repeat : 'no-repeat';
-
+        .event-box-main{
+           width: 100%;
+           
+         
+            #event-text{
+             
+                width: fit-content;
+                background-color: rgb(224, 224, 224);
+                margin-right: 2rem;
+                font-family: 'Heebo', sans-serif;
+                font-weight: 700;
+                font-size: 1rem;
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+        }
         .web-header{
             width: 100%;
             height: 50%;
@@ -46,22 +61,37 @@
         }
         #card-title{
             font-family: 'Raleway', sans-serif;
-            font-size: 2rem;
-            text-align: left;
+            font-size: 1.7rem;            
             color: rgb(185, 185, 185);
-            margin-left: 10rem;
+            margin-left: 12.5rem;
             margin-top: 1rem;
-        
         }
-
-        .card-container{
+        .card-vertical{
+            display: flex;
+            flex-direction: column;
+            width: inherit;
             margin-right: 7rem;
             margin-left: 7rem;
-            display: flex;
-            margin-top: 1rem;
-            flex-direction: row;
-            padding:0 3rem;
+            justify-items: right;
+            
+            #card-container1{
+                display: flex;
+                margin-top: 1rem;
+                flex-direction: row;
+                padding:0 3rem;
+                align-self: center;
+            }
+            #card-container2{
+                align-self: center;
+                display: flex;
+                margin-top: 1rem;
+                flex-direction: row;
+                padding:0 3rem;
+            }
+
+
         }
+       
 
     }
 }

@@ -14,11 +14,14 @@ export default class ScoreCard extends React.Component {
                 <div className='circle'>
                     <span>{this.props.score}</span>
                 </div>
-                <h2>PERFORMANCE</h2>
-                <p id='desc'>{this.props.desc}</p>
-                <div>
-                    <p id='crit'>{this.props.judge}</p>
-                </div>
+                {
+                // <h2>PERFORMANCE</h2>
+                // <p id='desc'>{this.props.desc}</p>
+                // <div>
+                //     <p id='crit'>{this.props.judge}</p>
+                // </div>
+                // 
+            }
             </div>
         )
     }
