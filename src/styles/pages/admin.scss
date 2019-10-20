@@ -17,10 +17,31 @@
         h3{
             color:white;
         }
-
+        .details1{
+            text-align: center;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 800;
+            font-size: 3rem;
+            color: wheat;
+        }
+        .details2{
+            text-align: center;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 800;
+            font-size: 3rem;
+            color: wheat;
+        }
+        .details3{
+            text-align: center;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 800;
+            font-size: 3rem;
+            color: wheat;
+        }
         .card-container{
             height: 100%;
             flex-direction: column;
+            
             .details{
                 color: wheat;
             }
@@ -33,7 +54,9 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.924);
+    background-image: url("../images/trans.png");
+
     
     .login{
         align-content: center;

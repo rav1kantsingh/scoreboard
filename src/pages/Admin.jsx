@@ -208,9 +208,9 @@ export default class MainPage extends React.Component {
         <Contestants judge_id={this.state.judge_id} data={this.state.data} handleClick={this.handleClick} hideGradeCard={this.hideGradeCard}/>
       </div>
       <div className='main'>
-        <h2 className='details'>{this.state.name}</h2>
-        <h3 className='details'>{this.state.branch}</h3>
-        <h3 className='details'>{this.state.event}</h3>
+        <div className='details1'>{this.state.name}</div>
+        <div className='details2'>{this.state.branch}</div>
+        <div className='details3'>{this.state.event}</div>
         {this.state.isSelected && !this.state.hideGradeCard ? <AdminScoreCard data={this.state.data} handleSubmitClicked={this.handleSubmitClicked} /> : null}
       </div>
 
