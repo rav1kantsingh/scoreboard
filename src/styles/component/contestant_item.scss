@@ -1,6 +1,5 @@
 .cListitem{
     width: 25vw;
-    height: 8rem;
     display: flex;
     flex-direction: row;
     justify-items: right;
@@ -8,7 +7,6 @@
     margin-bottom: 0.4rem;
     align-items: center;
     box-shadow: 4px 4px 8px rgb(58, 58, 58);
-
     .cMarker{
         width: 10%;
         height: 8rem;
@@ -60,7 +58,4 @@
 }
 .unselected{
     background-color: rgb(255, 255, 255);
-}
-.listitem{
-    overflow: auto;
 }
