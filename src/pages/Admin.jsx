@@ -36,13 +36,13 @@ export default class MainPage extends React.Component {
         data: dataList
       })
 
-      console.log('data', this.state.data)
+      // console.log('data', this.state.data)
     })
 
 
   }
   handleClick = (index) => {
-    console.log('click' + index)
+    // console.log('click' + index)
     this.setState({
       isSelected: true
     })
@@ -65,8 +65,8 @@ export default class MainPage extends React.Component {
   updateDB = (score) => {
 
     const updates = {};
-    updates[this.state.index + 1 + "/" + this.state.judge_id] = score;
-    console.log(this.state.read)
+    updates[this.state.index + "/" + this.state.judge_id] = score;
+    // console.log(this.state.read)
     return firebase.database().ref('/performers/').update(updates);
   }
   updateBRANCH = (score) => {
@@ -85,7 +85,7 @@ export default class MainPage extends React.Component {
     //update event score
     const updates = {};
     updates[this.state.judge_id] = score;
-    console.log(this.state.read)
+    // console.log(this.state.read)
     return firebase.database().ref('/' + this.state.event + '/' + "JUDGES").update(updates);
 
 
@@ -98,14 +98,14 @@ export default class MainPage extends React.Component {
     firebase.database().ref('/' + this.state.event + '/' + "leaderboard/" + '/' + this.state.branch).
       once('value', snapshot => {
 
-        console.log("old Value", snapshot.val());
+        // console.log("old Value", snapshot.val());
         oldScore = (parseInt(snapshot.val()));
         // this.updateLEADER2(score,oldScore);
         const updates = {};
         updates[this.state.branch] = score + oldScore;
-        console.log('route', '/' + this.state.event + '/' + "leaderboard/", updates);
+        // console.log('route', '/' + this.state.event + '/' + "leaderboard/", updates);
         firebase.database().ref('/' + this.state.event + '/' + "leaderboard/").update(updates, () => {
-          console.log("Update Successfull");
+          // console.log("Update Successfull");
         });
       });
 
@@ -146,16 +146,16 @@ export default class MainPage extends React.Component {
   }
 
   changeValues = (value) => {
-    console.log('pass', value)
+    // console.log('pass', value)
     this.setState({
       value: value,
     })
   }
 
   checkAuth = (password) => {
-    console.log('password', password);
+    // console.log('password', password);
     if (password == 'j1@ecc') {
-      console.log('PASSED')
+      // console.log('PASSED')
 
       this.setState({
         judge_id: 'j1',
@@ -165,7 +165,7 @@ export default class MainPage extends React.Component {
 
     }
     else if (password === 'j2@ecc') {
-      console.log('PASSED2s')
+      // console.log('PASSED2s')
 
       this.setState({
         isAuthenticated: true,
@@ -196,7 +196,7 @@ export default class MainPage extends React.Component {
         judge_id: 'j6'
       });
     }
-    console.log('pwd corr', this.state.judge_id)
+    // console.log('pwd corr', this.state.judge_id)
   }
   _handleKeyDown = (e) => {
     this.checkAuth(this.state.value);
@@ -208,13 +208,13 @@ export default class MainPage extends React.Component {
         {this.state.isAuthenticated ? <div className={'card-container'}>
         <div className='admin-page'>
         <div className='ranking'>
-        <Contestants judge_id={this.state.judge_id} data={this.state.data} handleClick={this.handleClick} hideGradeCard={this.hideGradeCard}/>
+        <Contestants  judge_id={this.state.judge_id} data={this.state.data} handleClick={this.handleClick} hideGradeCard={this.hideGradeCard}/>
       </div>
       <div className='main'>
         <div className='details1'>{this.state.name}</div>
         <div className='details2'>{this.state.branch}</div>
         <div className='details3'>{this.state.event}</div>
-        {this.state.isSelected && !this.state.hideGradeCard ? <AdminScoreCard data={this.state.data} handleSubmitClicked={this.handleSubmitClicked} /> : null}
+        {this.state.isSelected && !this.state.hideGradeCard ? <AdminScoreCard event = {this.state.event} data={this.state.data} handleSubmitClicked={this.handleSubmitClicked} /> : null}
       </div>
 
 
@@ -229,7 +229,8 @@ export default class MainPage extends React.Component {
                 this.checkAuth(this.state.value);
               }
             }} />  </div>
-            <div id="pwd_submit"> <button onClick={() => this.checkAuth(this.state.value)}>SUBMIT</button></div>
+            <div id="pwd_submit"> <button onClick={() => this.checkAuth(this.state.value)}
+            >SUBMIT</button></div>
           </div>
           </div>
         }
