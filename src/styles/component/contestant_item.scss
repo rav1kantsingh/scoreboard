@@ -1,6 +1,6 @@
 .cListitem{
     width: 25vw;
-    height: 6vw;
+    height: 8rem;
     display: flex;
     flex-direction: row;
     justify-items: right;
@@ -11,7 +11,7 @@
 
     .cMarker{
         width: 10%;
-        height: inherit;
+        height: 8rem;
         border-top-left-radius: 1vw;
         border-bottom-left-radius: 1vw;
     }
@@ -60,4 +60,7 @@
 }
 .unselected{
     background-color: rgb(255, 255, 255);
+}
+.listitem{
+    overflow: auto;
 }

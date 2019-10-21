@@ -137,6 +137,9 @@ export default class MainPage extends React.Component {
   }
 
   hideGradeCard = (e) => {
+    if(e===true){
+      window.alert('This participant has already been judged.')
+    }
     this.setState({
       hideGradeCard: e
     })
