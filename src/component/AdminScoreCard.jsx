@@ -21,7 +21,6 @@ export default class ScoreCard extends React.Component {
         }
     }
 
-
     fitCriterias = () => {
         if(this.props.event==='SOLO_DANCING'){
             this.state.crit1 = 'Choreography & Creativity';
