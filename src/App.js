@@ -12,6 +12,7 @@ import Admin from './pages/Admin';
 import ContestantItem from './component/ContestantItem';
 import FinalItemView from './component/Final_leaderboard_item';
 import FinalLeaderboard from './pages/Final';
+import SuperAdmin from './pages/SuperAdmin';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path='/final' component={FinalLeaderboard}/>
 
           <Route path='/finalitem' component={FinalItemView}/>
+          <Route path='/super' component ={SuperAdmin}/>
         </Switch>
       </Router>
     </div>
