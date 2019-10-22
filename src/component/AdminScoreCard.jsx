@@ -15,7 +15,8 @@ export default class ScoreCard extends React.Component {
             crit3:'',
             crit4:'',
             crit5:'',
-            crit6:''
+            crit6:'',
+            clear:0
         }
     }
 
@@ -79,6 +80,14 @@ export default class ScoreCard extends React.Component {
         }
     }
     changeValues = (valueName, value) => {
+       console.log(parseInt(value));
+       if(parseInt(value)<0 || parseInt(value)>10)
+        {
+            window.alert('Enter score between 1 and 10');
+            console.log()
+            return;
+
+        }
         if (valueName === 'value1') {
             this.setState({
                 value1: value,
