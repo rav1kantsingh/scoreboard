@@ -15,7 +15,8 @@ export default class ScoreCard extends React.Component {
             crit3:'',
             crit4:'',
             crit5:'',
-            crit6:''
+            crit6:'',
+            clicked:false
         }
     }
 
@@ -145,7 +146,7 @@ export default class ScoreCard extends React.Component {
                     </div>
         }
                 </div>
-                <button className='button' onClick={() => this.props.handleSubmitClicked(parseInt(this.state.value1) + parseInt(this.state.value2) + parseInt(this.state.value3) + parseInt(this.state.value4) + parseInt(this.state.value5))}>SUBMIT</button>
+                <button className='button' onClick={() => {this.props.handleSubmitClicked(parseFloat(this.state.value1) + parseFloat(this.state.value2) + parseFloat(this.state.value3) + parseFloat(this.state.value4) + parseFloat(this.state.value5)); this.setState({clicked:true})}}>SUBMIT</button>
             </div>
         )
     }

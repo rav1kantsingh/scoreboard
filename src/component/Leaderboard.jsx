@@ -16,7 +16,7 @@ export default class Leaderboard extends React.Component {
 
     firebase.database().ref('JUDGES_COUNT/').
       on('value', snapshot1 => {
-         var judgeCount = parseInt(snapshot1.val());
+         var judgeCount = parseFloat(snapshot1.val());
          console.log("JUDGECOUNT",judgeCount);
        
 
@@ -45,7 +45,7 @@ export default class Leaderboard extends React.Component {
 
               console.log(branch, 'ran', i);
               console.log(judge);
-              total+=parseInt(dataObject[branch][judge]);
+              total+=parseFloat(dataObject[branch][judge]);
             }
 
 

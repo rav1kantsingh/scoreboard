@@ -141,7 +141,7 @@ export default class MainPage extends React.Component {
       window.alert('This participant has already been judged.')
     }
     this.setState({
-      hideGradeCard: e
+      hideGradeCard: e,
     })
   }
 
@@ -229,8 +229,7 @@ export default class MainPage extends React.Component {
                 this.checkAuth(this.state.value);
               }
             }} />  </div>
-            <div id="pwd_submit"> <button onClick={() => this.checkAuth(this.state.value)}
-            >SUBMIT</button></div>
+            <div id="pwd_submit"> <button onClick={() => this.checkAuth(this.state.value)}>SUBMIT</button></div>
           </div>
           </div>
         }
