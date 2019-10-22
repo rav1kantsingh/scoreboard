@@ -14,8 +14,6 @@ export default class ScoreCard extends React.Component {
                 <div className='circle'>
                     <span>{this.props.score}</span>
                 </div>
-                {
-            }
             </div>
         )
     }

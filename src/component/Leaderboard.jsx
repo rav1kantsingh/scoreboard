@@ -15,22 +15,15 @@ export default class Leaderboard extends React.Component {
     firebase.database().ref('JUDGES_COUNT/').
       on('value', snapshot1 => {
         var judgeCount = parseInt(snapshot1.val());
-        console.log("JUDGECOUNT", judgeCount);
-
-
-        console.log('EVENT', this.state.event)
         const dataRef = firebase.database().ref(this.state.event + '/branches/');
         dataRef.on('value', snapshot => {
-
           var dataList = [];
           console.log(snapshot)
-
           const dataObject = snapshot.val();
           console.log("aman", dataObject);
           for (var branch in dataObject) {
             var singleeObj = {};
             console.log('BRANCH', branch)
-
             singleeObj['branch'] = branch;
             var i = judgeCount;
             var total = 0;
@@ -40,9 +33,6 @@ export default class Leaderboard extends React.Component {
               if (i <= 0)
                 break;
               i--;
-
-              console.log(branch, 'ran', i);
-              console.log(judge);
               total += parseFloat(dataObject[branch][judge]);
             }
             singleeObj['score'] = total;

@@ -2,10 +2,10 @@ import React from "react";
 import ContestantItem from "./ContestantItem";
 
 export default class Contestants extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      selectedIndex : -1,
+      selectedIndex: -1,
     }
   }
 
@@ -18,11 +18,11 @@ export default class Contestants extends React.Component {
   render() {
     return (
       <div className="listbox">
-      <div id='title' >CONTESTANTS</div>
-          {this.props.data.map((item,index) => {
-            console.log('SCORREEEEEEE');
-            return <ContestantItem  judge_id = {this.props.judge_id} index = {index} handleClick={this.props.handleClick} isSelected={this.state.selectedIndex===index} hideGradeCard = {this.props.hideGradeCard} changeSelectedIndex={this.changeSelectedIndex} item={item} />
-          })}
+        <div id='title' >CONTESTANTS</div>
+        {this.props.data.map((item, index) => {
+          console.log('SCORREEEEEEE');
+          return <ContestantItem judge_id={this.props.judge_id} index={index} handleClick={this.props.handleClick} isSelected={this.state.selectedIndex === index} hideGradeCard={this.props.hideGradeCard} changeSelectedIndex={this.changeSelectedIndex} item={item} />
+        })}
       </div>
     )
   }
