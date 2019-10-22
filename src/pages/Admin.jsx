@@ -99,7 +99,7 @@ export default class MainPage extends React.Component {
       once('value', snapshot => {
 
         // console.log("old Value", snapshot.val());
-        oldScore = (parseInt(snapshot.val()));
+        oldScore = (parseFloat(snapshot.val()));
         // this.updateLEADER2(score,oldScore);
         const updates = {};
         updates[this.state.branch] = score + oldScore;
