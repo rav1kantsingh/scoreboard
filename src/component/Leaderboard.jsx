@@ -43,7 +43,7 @@ export default class Leaderboard extends React.Component {
 
               console.log(branch, 'ran', i);
               console.log(judge);
-              total += parseInt(dataObject[branch][judge]);
+              total += parseFloat(dataObject[branch][judge]);
             }
             singleeObj['score'] = total;
             dataList.push(singleeObj);
