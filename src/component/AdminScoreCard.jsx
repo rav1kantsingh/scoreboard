@@ -20,6 +20,10 @@ export default class ScoreCard extends React.Component {
             clear: 0
         }
     }
+    showAlert = () => {
+                    window.alert('Your response has been recorded.\nThank You');
+
+    }
 
     fitCriterias = () => {
         if (this.props.event === 'SOLO_DANCING') {
@@ -153,7 +157,7 @@ export default class ScoreCard extends React.Component {
                         </div>
                     }
                 </div>
-                <button className='button' onClick={() => { this.props.handleSubmitClicked(parseFloat(this.state.value1) + parseFloat(this.state.value2) + parseFloat(this.state.value3) + parseFloat(this.state.value4) + parseFloat(this.state.value5)); this.setState({ clicked: true }) }}>SUBMIT</button>
+                <button className='button' onClick={() => { this.showAlert(); this.props.handleSubmitClicked(parseFloat(this.state.value1) + parseFloat(this.state.value2) + parseFloat(this.state.value3) + parseFloat(this.state.value4) + parseFloat(this.state.value5)); this.setState({ clicked: true }) }}>SUBMIT</button>
             </div>
         )
     }
