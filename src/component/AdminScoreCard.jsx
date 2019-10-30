@@ -21,68 +21,66 @@ export default class ScoreCard extends React.Component {
         }
     }
     showAlert = () => {
-                    window.alert('Your response has been recorded.\nThank You');
-
+        window.alert('Your response has been recorded.\nThank You');
     }
 
     fitCriterias = () => {
-        if (this.props.event === 'SOLO_DANCING') {
-            this.state.crit1 = 'Choreography & Creativity';
-            this.state.crit2 = 'Rhythm';
-            this.state.crit3 = 'Costume';
-            this.state.crit4 = 'Space Utilization';
-            this.state.crit5 = 'Overall Impression';
-        }
-        else if (this.props.event === 'GROUP_DANCING') {
-            this.state.crit1 = 'Choreography & Creativity';
-            this.state.crit2 = 'Rhythm';
-            this.state.crit3 = 'Costume';
-            this.state.crit4 = 'Space Utilization';
-            this.state.crit5 = 'Overall Impression';
+        if (this.props.event === 'SOLO_DANCING'||'GROUP_DANCING') {
+            this.setState({
+                crit1 : 'Choreography & Creativity',
+                crit2 : 'Rhythm',
+                crit3 : 'Costume',
+                crit4 : 'Space Utilization',
+                crit5 : 'Overall Impression',
+            })
         }
         else if (this.props.event === 'SOLO_SINGING') {
-            this.state.crit1 = 'Voice Quality';
-            this.state.crit2 = 'Rhythm';
-            this.state.crit3 = 'Expressions/Emotions';
-            this.state.crit4 = 'Clarity of Lyrics';
-            this.state.crit5 = '-';
+            this.setState({
+                crit1 : 'Voice Quality',
+                crit2 : 'Rhythm',
+                crit3 : 'Expressions/Emotions',
+                crit4 : 'Clarity of Lyrics',
+                crit5 : '-',
+            })
         }
         else if (this.props.event === 'DUET_SINGING') {
-            this.state.crit1 = 'Voice Quality';
-            this.state.crit2 = 'Rhythm';
-            this.state.crit3 = 'Expressions/Emotions';
-            this.state.crit4 = 'Clarity of Lyrics';
-            this.state.crit5 = 'Coordination';
+            this.setState({
+                crit1 : 'Voice Quality',
+                crit2 : 'Rhythm',
+                crit3 : 'Expressions/Emotions',
+                crit4 : 'Clarity of Lyrics',
+                crit5 : 'Coordination',
+            })
         }
         else if (this.props.event === 'STANDUP') {
-            this.state.crit1 = 'Concept';
-            this.state.crit2 = 'Originality';
-            this.state.crit3 = 'Expression';
-            this.state.crit4 = 'Confidence';
-            this.state.crit5 = 'Crowd Reaction';
+            this.setState({
+                crit1 : 'Concept',
+                crit2 : 'Originality',
+                crit3 : 'Expression',
+                crit4 : 'Confidence',
+                crit5 : 'Crowd Reaction',
+            })
         }
         else if (this.props.event === 'POETRY') {
-            this.state.crit1 = 'Concept';
-            this.state.crit2 = 'Originality';
-            this.state.crit3 = 'Expression';
-            this.state.crit4 = 'Confidence';
-            this.state.crit5 = 'Clarity of spoken words';
+            this.setState({
+                crit1 : 'Concept',
+                crit2 : 'Originality',
+                crit3 : 'Expression',
+                crit4 : 'Confidence',
+                crit5 : 'Clarity of spoken words',
+            })
         }
-        else if (this.props.event === 'ENGLISH_DEBATE') {
-            this.state.crit1 = 'Understanding of Topic';
-            this.state.crit2 = 'Substance / Content';
-            this.state.crit3 = 'Organization & Clarity';
-            this.state.crit4 = 'Use of facts/statistics';
-            this.state.crit5 = 'Confidence';
-        }
-        else if (this.props.event === 'HINDI_DEBATE') {
-            this.state.crit1 = 'Understanding of Topic';
-            this.state.crit2 = 'Substance / Content';
-            this.state.crit3 = 'Organization & Clarity';
-            this.state.crit4 = 'Use of facts/statistics';
-            this.state.crit5 = 'Confidence';
+        else if (this.props.event === 'ENGLISH_DEBATE' || 'HINDI_DEBATE') {
+            this.setState({
+                crit1 : 'Understanding of Topic',
+                crit2 : 'Substance / Content',
+                crit3 : 'Organization & Clarity',
+                crit4 : 'Use of facts/statistics',
+                crit5 : 'Confidence',
+            })
         }
     }
+
     changeValues = (valueName, value) => {
         console.log(parseInt(value));
         if (parseInt(value) < 0 || parseInt(value) > 10) {
