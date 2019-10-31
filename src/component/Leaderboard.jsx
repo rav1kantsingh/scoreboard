@@ -12,8 +12,7 @@ export default class Leaderboard extends React.Component {
   }
 
   componentDidMount() {
-    firebase.database().ref('JUDGES_COUNT/').
-      on('value', snapshot1 => {
+    firebase.database().ref('JUDGES_COUNT/').on('value', snapshot1 => {
         var judgeCount = parseInt(snapshot1.val());
         const dataRef = firebase.database().ref(this.state.event + '/branches/');
         dataRef.on('value', snapshot => {

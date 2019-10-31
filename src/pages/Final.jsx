@@ -22,30 +22,32 @@ export default class Final extends React.Component {
       for (var key in dataObject) {
         var singleeObj = {};
         this.setState({
-          total:0
+          total: 0
         })
-        // singleeObj['branch'] = key;
-        // singleeObj['score'] = dataObject[key];
-        // dataList.push(singleeObj);
         console.log(key);
         singleeObj['branch'] = key;
-        for(var data in dataObject[key]){
-            singleeObj[data]=dataObject[key][data];
-            if(data=='gold')
-                this.state.total+=parseInt(dataObject[key][data])*3;
-            if(data=='silver')
-            this.state.total+=parseInt(dataObject[key][data])*2;
-            if(data=='bronze')
-            this.state.total+=parseInt(dataObject[key][data])*1;
-            
-            singleeObj['total'] = this.state.total;
-            console.log(key,this.state.total);
+        for (var data in dataObject[key]) {
+          singleeObj[data] = dataObject[key][data];
+          if (data === 'gold')
+            this.setState({
+              total: this.state.total + parseInt(dataObject[key][data]) * 3
+            })
+          if (data === 'silver')
+          this.setState({
+            total: this.state.total + parseInt(dataObject[key][data]) * 2
+          })
+          if (data === 'bronze')
+          this.setState({
+            total: this.state.total + parseInt(dataObject[key][data]) * 1
+          })
+          singleeObj['total'] = this.state.total;
+          console.log(key, this.state.total);
         }
         dataList.push(singleeObj);
       }
       this.setState({
         data: dataList
-        
+
       })
     })
   }
@@ -59,12 +61,12 @@ export default class Final extends React.Component {
         <div id='final_title'>LEADERBOARD</div>
 
         <ul>
-         <div><LeaderHeader></LeaderHeader></div>
+          <div><LeaderHeader></LeaderHeader></div>
           {this.state.data.map((item, index) => {
-            console.log("xxx",item);
+            console.log("xxx", item);
             console.log('amanaamana');
-           
-            return <div><LeaderboardListItem pos = {index} data = {item} /></div>
+
+            return <div><LeaderboardListItem pos={index} data={item} /></div>
           })}
         </ul>
       </div>
