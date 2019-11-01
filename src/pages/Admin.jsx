@@ -3,7 +3,6 @@ import AdminScoreCard from '../component/AdminScoreCard';
 import Contestants from '../component/Contestants';
 import PasswordField from '../component/PasswordField';
 import firebase from '../utils/firebase';
-import { resolve } from 'url';
 
 export default class MainPage extends React.Component {
   constructor() {
@@ -45,14 +44,14 @@ export default class MainPage extends React.Component {
     // console.log('click' + index)
     this.setState({
       isSelected: true
-    })
+    });
     this.setState({
       name: this.state.data[index].name,
       branch: this.state.data[index].branch,
       event: this.state.data[index].event,
       index: index
     })
-  }
+  };
 
   handleSubmitClicked = (score) => {
     this.updateDB(score);
@@ -60,43 +59,43 @@ export default class MainPage extends React.Component {
     this.updateEVENT(score);
     this.updateLEADERBOARD(score);
     // this.updateJUDGE(score);
-  }
+  };
 
   updateDB = (score) => {
 
     const updates = {};
-    updates[this.state.index + "/" + this.state.judge_id] = score;
+    updates[`${this.state.index}/${this.state.judge_id}`] = score;
     // console.log(this.state.read)
     return firebase.database().ref('/performers/').update(updates);
-  }
+  };
   updateBRANCH = (score) => {
 
 
     //update branch score
     const updates = {};
     updates[this.state.judge_id] = score;
-    console.log(this.state.read)
-    return firebase.database().ref('/' + this.state.event + '/branches/' + this.state.branch ).update(updates);
+    console.log(this.state.read);
+    return firebase.database().ref(`/${this.state.event}/branches/${this.state.branch}`).update(updates);
 
 
-  }
+  };
   updateEVENT = (score) => {
 
     //update event score
     const updates = {};
     updates[this.state.judge_id] = score;
     // console.log(this.state.read)
-    return firebase.database().ref('/' + this.state.event + '/' + "JUDGES").update(updates);
+    return firebase.database().ref(`/${this.state.event}/JUDGES`).update(updates);
 
 
-  }
+  };
 
   updateLEADERBOARD = (score) => {
     var oldScore = 0;
 
     //console.log('route', '/' + this.state.event + '/' + "leaderboard/");
-    firebase.database().ref('/' + this.state.event + '/' + "leaderboard/" + '/' + this.state.branch).
-      once('value', snapshot => {
+    firebase.database().ref(`/${this.state.event}/leaderboard/${this.state.branch}`)
+        .once('value', snapshot => {
 
         // console.log("old Value", snapshot.val());
         oldScore = (parseFloat(snapshot.val()));
@@ -104,7 +103,7 @@ export default class MainPage extends React.Component {
         const updates = {};
         updates[this.state.branch] = score + oldScore;
         // console.log('route', '/' + this.state.event + '/' + "leaderboard/", updates);
-        firebase.database().ref('/' + this.state.event + '/' + "leaderboard/").update(updates, () => {
+        firebase.database().ref(`/${this.state.event}/leaderboard/`).update(updates, () => {
           // console.log("Update Successfull");
         });
       });
@@ -130,11 +129,11 @@ export default class MainPage extends React.Component {
 
 
 
-  }
+  };
   updateLEADER2 = (score, oldScore) => {
 
 
-  }
+  };
 
   hideGradeCard = (e) => {
     if(e===true){
@@ -143,18 +142,18 @@ export default class MainPage extends React.Component {
     this.setState({
       hideGradeCard: e,
     })
-  }
+  };
 
   changeValues = (value) => {
     // console.log('pass', value)
     this.setState({
       value: value,
     })
-  }
+  };
 
   checkAuth = (password) => {
     // console.log('password', password);
-    if (password == 'j1@ecc') {
+    if (password ==='j1@ecc') {
       // console.log('PASSED')
 
       this.setState({
@@ -197,11 +196,11 @@ export default class MainPage extends React.Component {
       });
     }
     // console.log('pwd corr', this.state.judge_id)
-  }
+  };
   _handleKeyDown = (e) => {
     this.checkAuth(this.state.value);
 
-  }
+  };
   render() {
     return (
       <div className='admin-page2'>

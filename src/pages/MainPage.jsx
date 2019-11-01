@@ -55,7 +55,7 @@ export default class MainPage extends React.Component {
           <Leaderboard event_name={this.state.event} />
         </div>
         <div className='main'>
-        <div className='event-name-main'></div>
+        <div className='event-name-main'/>
           <div className='web-header'>
             <div className='web-title1'>ECCENTRICA</div>
             <div className='web-title2'>3.0</div>
