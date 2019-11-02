@@ -11,10 +11,12 @@
 @import './component/header_final_leader.scss';
 
 //pages
+@import 'pages/pageNotFound';
 @import './pages/index.scss';
 @import './pages/admin.scss';
 @import './pages/final.scss';
 @import './pages/superadmin.scss';
+
 
 //fonts
 @import './base/fonts.scss';

@@ -1,7 +1,6 @@
 
   import React from 'react';
 import firebase from '../utils/firebase';
-import { resolve } from 'url';
 
 export default class MainPage extends React.Component {
   constructor() {
@@ -24,8 +23,8 @@ export default class MainPage extends React.Component {
     updates['j5'] = 0;
     updates['j6'] = 0;
 
-    return firebase.database().ref('/'+node + '/' + "JUDGES").update(updates);
-  }
+    return firebase.database().ref(`/${node}/JUDGES`).update(updates);
+  };
 
   
   render() {

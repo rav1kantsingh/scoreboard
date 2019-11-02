@@ -22,7 +22,7 @@ export default class ScoreCard extends React.Component {
     }
     showAlert = () => {
         window.alert('Your response has been recorded.\nThank You');
-    }
+    };
 
     fitCriterias = () => {
         if (this.props.event === 'SOLO_DANCING'||'GROUP_DANCING') {
@@ -79,13 +79,12 @@ export default class ScoreCard extends React.Component {
                 crit5 : 'Confidence',
             })
         }
-    }
+    };
 
     changeValues = (valueName, value) => {
         console.log(parseInt(value));
         if (parseInt(value) < 0 || parseInt(value) > 10) {
             window.alert('Enter score between 1 and 10');
-            console.log()
             return;
 
         }
@@ -110,7 +109,7 @@ export default class ScoreCard extends React.Component {
                 value5: value,
             })
         }
-    }
+    };
 
     render() {
         return (
@@ -143,7 +142,7 @@ export default class ScoreCard extends React.Component {
                 </div>
                 <div className='horizontal-holder'>
                     {this.state.crit5 === '-' ?
-                        <div className='rough'></div>
+                        <div className='rough'/>
                         :
                         <div className='horizontal-holder'>
                             <h2 id='score-criteria'>{this.state.crit5}</h2>
