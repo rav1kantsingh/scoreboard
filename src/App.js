@@ -15,14 +15,15 @@ import FinalLeaderboard from './pages/Final';
 import SuperAdmin from './pages/SuperAdmin';
 import NotFoundPage from "./pages/NotFoundPage";
 import {Redirect} from "react-router-dom";
-import MainPage from "./pages/MainPage";
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Switch>
-          <Route exact path='/' component={MainPage}/>
+          // Todo design a main page for the app and replace FinalLeaderboard at '/' 
+          // which is currently assigned FinalLeaderboard as a placeholder.
+          <Route exact path='/' component={FinalLeaderboard}/>
           <Route path='/solo-dancing' component={SoloDancing}/>
           <Route path='/solo-singing' component={SoloSinging}/>
           <Route path='/group-dancing' component={GroupDancing}/>
